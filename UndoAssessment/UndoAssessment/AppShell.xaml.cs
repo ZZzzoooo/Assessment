@@ -13,6 +13,8 @@ namespace UndoAssessment
             InitializeComponent();
             Routing.RegisterRoute(nameof(ItemDetailPage), typeof(ItemDetailPage));
             Routing.RegisterRoute(nameof(NewItemPage), typeof(NewItemPage));
+            Routing.RegisterRoute(nameof(TestPage), typeof(TestPage));
+            Routing.RegisterRoute(nameof(UserFormPage), typeof(UserFormPage));
         }
 
     }
