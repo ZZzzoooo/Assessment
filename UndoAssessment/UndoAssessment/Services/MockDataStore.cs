@@ -9,6 +9,7 @@ namespace UndoAssessment.Services
     public class MockDataStore : IDataStore<Item>
     {
         readonly List<Item> items;
+        private UserModel user;
 
         public MockDataStore()
         {
@@ -55,6 +56,16 @@ namespace UndoAssessment.Services
         public async Task<IEnumerable<Item>> GetItemsAsync(bool forceRefresh = false)
         {
             return await Task.FromResult(items);
+        }
+
+        public void SetUser(UserModel user)
+        {
+            this.user = user;
+        }
+
+        public UserModel GetUser()
+        {
+            return this.user;
         }
     }
 }

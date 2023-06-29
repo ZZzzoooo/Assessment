@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using UndoAssessment.Models;
 
 namespace UndoAssessment.Services
 {
@@ -11,6 +12,8 @@ namespace UndoAssessment.Services
         Task<bool> DeleteItemAsync(string id);
         Task<T> GetItemAsync(string id);
         Task<IEnumerable<T>> GetItemsAsync(bool forceRefresh = false);
+        void SetUser(UserModel user);
+        UserModel GetUser();
     }
 }
 

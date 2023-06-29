@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="UndoAssessment.Views.TestPage"
+             Title="{Binding Title}"
+             xmlns:local="clr-namespace:UndoAssessment.ViewModels"
+             x:DataType="local:TestViewModel"
+             x:Name="TestAssessmentPage">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Set User" Command="{Binding GotoUserFormCommand}" />
+    </ContentPage.ToolbarItems>
+
+
+    <StackLayout Spacing="15" Padding="25">
+
+        <!-- User block -->
+        <Label Text="{Binding User}" 
+               IsVisible="{Binding UserVisibility}"
+               HorizontalTextAlignment="Center">
+        </Label>
+
+        <StackLayout>
+            <Button Text="API1" Command="{Binding Api1Command}"></Button>
+            <Button Text="API2" Command="{Binding Api2Command}"></Button>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>
+
