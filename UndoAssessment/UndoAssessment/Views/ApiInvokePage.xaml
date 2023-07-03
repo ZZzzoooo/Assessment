@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:UndoAssessment.Views"
+             xmlns:vm ="clr-namespace:UndoAssessment.ViewModels"
+             x:Class="UndoAssessment.Views.ApiInvokePage"
+             Title="{Binding Title}">
+    <ContentPage.BindingContext>
+        <vm:ApiInvokePageViewModel/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add User Info" Command="{Binding ShowUserInfoFormCommand}" />
+    </ContentPage.ToolbarItems>
+
+    <StackLayout>
+        <!-- User Info -->
+        <Label Text="{Binding UserInfoText}"
+               HorizontalOptions="Center"
+               VerticalOptions="Center"
+               FontSize="20"
+               Margin="20"/>
+        <!-- Buttons -->
+        <StackLayout Orientation="Vertical" HorizontalOptions="Center" Spacing="10" Padding="15">
+            <Button Text="Invoke Success API"
+                    Command="{Binding SuccessApiCommand}"
+                    Margin="10"/>
+            <Button Text="Invoke Fail API"
+                    Command="{Binding FailApiCommand}"
+                    Margin="10"/>
+        </StackLayout>
+    </StackLayout>
+
+
+</ContentPage>

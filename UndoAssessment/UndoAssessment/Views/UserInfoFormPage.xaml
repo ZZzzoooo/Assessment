@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:UndoAssessment.ViewModels"
+             x:Class="UndoAssessment.Views.UserInfoFormPage">
+
+    <ContentPage.BindingContext>
+        <vm:ApiInvokePageViewModel/>
+    </ContentPage.BindingContext>
+
+    <StackLayout Padding="20">
+        <Label Text="User Information" FontSize="24" HorizontalOptions="Center" Margin="0,0,0,20" />
+
+        <Entry Placeholder="Name" Text="{Binding UserName, Mode=TwoWay}" />
+        <Entry Placeholder="Age" Text="{Binding UserAge, Mode=TwoWay}" Keyboard="Numeric" />
+
+        <Button Text="Submit" Command="{Binding SubmitUserInfoCommand}" HorizontalOptions="Center" Margin="0,20" />
+    </StackLayout>
+
+</ContentPage>
