@@ -3,10 +3,35 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+    <ProduceReferenceAssemblyInOutDir>true</ProduceReferenceAssemblyInOutDir>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2578" />  
-    <PackageReference Include="Xamarin.Essentials" Version="1.7.6" />
+    <None Remove="Image\check.png" />
+    <None Remove="Image\cross.jpeg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Image\check.png" />
+    <EmbeddedResource Include="Image\cross.jpeg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="System.Text.Json" Version="7.0.3" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2196" />  
+    <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Views\AssesmentPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\AssesmentResultPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\NewUserPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>

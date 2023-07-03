@@ -13,4 +13,3 @@ namespace UndoAssessment.Services
         Task<IEnumerable<T>> GetItemsAsync(bool forceRefresh = false);
     }
 }
-

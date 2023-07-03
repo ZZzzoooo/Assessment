@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="UndoAssessment.Views.AssesmentResultPage"
+             Title="{Binding Title}">
+    <ContentPage.Content>
+        <StackLayout Padding="0,0,0,0">
+            <Frame CornerRadius="5">
+                <Grid RowDefinitions="Auto,Auto,Auto,Auto" ColumnDefinitions="Auto,*,*">
+                    <Label Grid.Row="1" Grid.Column="0" Text="*Name - Age" FontSize="12" />
+                    <Label Grid.Row="2" Grid.Column="0" Text="{Binding UserName}" FontSize="12" />
+
+                    <Button Grid.Row="3" Grid.Column="0" Text="Back" HorizontalOptions="Center" Command="{Binding BackToComm}" WidthRequest="180" />
+                </Grid>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

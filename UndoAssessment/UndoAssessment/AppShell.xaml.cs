@@ -13,8 +13,14 @@ namespace UndoAssessment
             InitializeComponent();
             Routing.RegisterRoute(nameof(ItemDetailPage), typeof(ItemDetailPage));
             Routing.RegisterRoute(nameof(NewItemPage), typeof(NewItemPage));
+            Routing.RegisterRoute(nameof(AssesmentPage), typeof(AssesmentPage));
+            Routing.RegisterRoute(nameof(AssesmentResultPage), typeof(AssesmentResultPage));
+            Routing.RegisterRoute(nameof(NewUserPage), typeof(NewUserPage));
         }
 
+        private async void OnMenuItemClicked(object sender, EventArgs e)
+        {
+            await Shell.Current.GoToAsync("//LoginPage");
+        }
     }
 }
-

@@ -1,21 +1,24 @@
-﻿using System;
+﻿using Assesment1.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using UndoAssessment.ViewModels;
+
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace UndoAssessment.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class LoginPage : ContentPage
+    public partial class NewUserPage : ContentPage
     {
-        public LoginPage()
+        private NewUserViewModel _newUserViewModel;
+        public NewUserPage()
         {
             InitializeComponent();
-            this.BindingContext = new LoginViewModel();
+            _newUserViewModel = new NewUserViewModel();
+            BindingContext = _newUserViewModel;
         }
     }
 }

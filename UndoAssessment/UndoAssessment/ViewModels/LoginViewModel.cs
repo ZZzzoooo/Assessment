@@ -1,7 +1,7 @@
-﻿using UndoAssessment.Views;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using UndoAssessment.Views;
 using Xamarin.Forms;
 
 namespace UndoAssessment.ViewModels
@@ -22,4 +22,3 @@ namespace UndoAssessment.ViewModels
         }
     }
 }
-

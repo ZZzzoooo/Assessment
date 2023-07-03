@@ -2,11 +2,9 @@
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Threading.Tasks;
-
-using Xamarin.Forms;
-
 using UndoAssessment.Models;
 using UndoAssessment.Views;
+using Xamarin.Forms;
 
 namespace UndoAssessment.ViewModels
 {
@@ -16,7 +14,7 @@ namespace UndoAssessment.ViewModels
 
         public ObservableCollection<Item> Items { get; }
         public Command LoadItemsCommand { get; }
-        public Command AddItemCommand { get;  }
+        public Command AddItemCommand { get; }
         public Command<Item> ItemTapped { get; }
 
         public ItemsViewModel()

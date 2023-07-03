@@ -1,4 +1,4 @@
-﻿Welcome to Xamarin.Forms! Here are some tips to get started building your app.
+Welcome to Xamarin.Forms! Here are some tips to get started building your app.
 
 Building Your App UI
 --------------------
@@ -32,4 +32,3 @@ This template uses Shell, an app container that reduces the complexity of your a
 - An integrated search handler.
 
 Open AppShell.xaml to begin exploring. To learn more about Shell visit: https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/shell/introduction
-

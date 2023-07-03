@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B08F8340-7FAF-4AB2-A9DA-BA5B14FE5FDE}</ProjectGuid>
+    <ProjectGuid>{7471E318-A3D7-4C5B-ADAA-0F491EA3A05E}</ProjectGuid>
     <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <TemplateGuid>{6968b3a4-1835-46a3-ac5c-1ae33b475983}</TemplateGuid>
     <OutputType>Library</OutputType>
@@ -16,6 +16,7 @@
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
+    <AndroidUseLatestPlatformSdk>false</AndroidUseLatestPlatformSdk>
     <TargetFrameworkVersion>v13.0</TargetFrameworkVersion>
     <AndroidEnableSGenConcurrent>true</AndroidEnableSGenConcurrent>
     <AndroidUseAapt2>true</AndroidUseAapt2>
@@ -54,8 +55,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2578" />
-    <PackageReference Include="Xamarin.Essentials" Version="1.7.6" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2196" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainActivity.cs" />
@@ -88,7 +89,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\UndoAssessment\UndoAssessment.csproj">
-      <Project>{7ED4972A-D279-4E63-B4F5-3D15590D4AA1}</Project>
+      <Project>{67736D58-A34D-4AA9-8C1D-DA25B8909E81}</Project>
       <Name>UndoAssessment</Name>
     </ProjectReference>
   </ItemGroup>

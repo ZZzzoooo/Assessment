@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="UndoAssessment.Views.AssesmentPage"
+             Title="{Binding Title}">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="New" Command="{Binding AddCommand}" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout Padding="0,0,0,0">
+            <Grid RowDefinitions="Auto,Auto,Auto,Auto" ColumnDefinitions="Auto,*,*" RowSpacing="0" Padding="0">
+                <Image  x:Name="menuItem1" Grid.Row="8" Grid.Column="1" Margin="0,0,0,0">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer
+                                Tapped="GoSuccess"/>
+                    </Image.GestureRecognizers>
+                </Image>
+
+                <Image  x:Name="menuItem2" Grid.Row="8" Grid.Column="3" Margin="0,0,0,0">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer
+                                Tapped="GoFail"/>
+                    </Image.GestureRecognizers>
+                </Image>
+
+                <Label Grid.Row="9"
+                        Grid.Column="1"
+                        Text="Success"
+                        TextColor="Black"           
+                        FontSize="18"
+                        FontAttributes="Bold"
+                        HorizontalOptions="Center" 
+                        HorizontalTextAlignment="Center"
+                        VerticalTextAlignment="Center"
+                        VerticalOptions="Center"
+                    />
+
+                <Label Grid.Row="9"
+                        Grid.Column="3"
+                        Text="Fail"
+                        TextColor="Black"           
+                        FontSize="18"
+                        FontAttributes="Bold"
+                        HorizontalOptions="Center" 
+                        HorizontalTextAlignment="Center"
+                        VerticalTextAlignment="Center"
+                        VerticalOptions="Center"
+                    />
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
