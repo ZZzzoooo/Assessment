@@ -25,7 +25,7 @@
     <key>CFBundleDisplayName</key>
     <string>UndoAssessment</string>
     <key>CFBundleIdentifier</key>
-    <string>com.undo.assessment.UndoAssessment</string>
+    <string>com.companyname.UndoAssessment</string>
     <key>CFBundleVersion</key>
     <string>1.0</string>
     <key>UILaunchStoryboardName</key>

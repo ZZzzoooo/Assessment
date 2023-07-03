@@ -2,11 +2,9 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-
-using Xamarin.Forms;
-
 using UndoAssessment.Models;
 using UndoAssessment.Services;
+using Xamarin.Forms;
 
 namespace UndoAssessment.ViewModels
 {
@@ -29,7 +27,7 @@ namespace UndoAssessment.ViewModels
         }
 
         protected bool SetProperty<T>(ref T backingStore, T value,
-            [CallerMemberName]string propertyName = "",
+            [CallerMemberName] string propertyName = "",
             Action onChanged = null)
         {
             if (EqualityComparer<T>.Default.Equals(backingStore, value))
@@ -54,4 +52,3 @@ namespace UndoAssessment.ViewModels
         #endregion
     }
 }
-
