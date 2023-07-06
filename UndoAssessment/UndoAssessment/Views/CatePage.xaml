@@ -8,6 +8,10 @@
     <ContentPage.BindingContext>
         <vm:CateViewModel />
     </ContentPage.BindingContext>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Enter User" Command="{Binding PopupUserInfoCommand}" />
+    </ContentPage.ToolbarItems>
     
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -17,9 +21,16 @@
 
     <Grid>
         <StackLayout Margin="20,20,20,20">
-            <Button Text="Success" Clicked="OnSuccessButtonClicked" />
-            <Button Text="Fail" Clicked="OnFailButtonClicked" />
-            <Button Text="Enter User Info" Clicked="OnUserInfoButtonClicked" />
+
+            <Label Text="{Binding User}" 
+               IsVisible="{Binding UserVisible}"
+               HorizontalTextAlignment="Center"
+               FontSize="Large">
+            </Label>
+            
+            <Button Text="Success" Command="{Binding ApiSuccessCommand}" />
+            <Button Text="Fail" Command="{Binding ApiFailCommand}" />
+            <!-- <Button Text="Enter User Info" Clicked="OnUserInfoButtonClicked" />
 
             <StackLayout x:Name="userInfoLayout" IsVisible="False" Margin="20,20,20,20">
                 <Entry Placeholder="Name" x:Name="nameEntry" />
@@ -27,7 +38,7 @@
                 <Button Text="Submit" Clicked="OnSubmitButtonClicked" />
             </StackLayout>
 
-            <Label x:Name="userInfoLabel" IsVisible="False" Margin="20,20,20,20" FontSize="Large" HorizontalTextAlignment="Center" />
+            <Label x:Name="userInfoLabel" IsVisible="False" Margin="20,20,20,20" FontSize="Large" HorizontalTextAlignment="Center" /> -->
         </StackLayout>
     </Grid>
 
