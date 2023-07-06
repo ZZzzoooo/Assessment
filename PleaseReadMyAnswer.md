@@ -1,51 +1,46 @@
 # Assessment Finished By Manric Vilegas
 
 ## Task 1 [4 hours]
-I finshed this task in 30 minutes.
-Please build and run it.
+
+Dear Cate
+
+I have finished second update about this project.
+Please check it.
 
 ## Task 2 [2 hours]
 
-- Content Management:
-```
-Will the news content be managed from within the application or through a separate backend system?
-Is there an existing content management system (CMS) in place for managing news articles?
-Are there any specific features or functionalities required for managing and organizing the news content?
-```
-- Source of News:
-```
-Where will the news articles be sourced from? Are they written internally or obtained from external sources?
-Is there a requirement to integrate with external APIs or news aggregation services to fetch news articles?
-Do you have any preferred news sources or categories that should be prioritized?
-```
-- User Experience:
-```
-How should the news section be presented to the users? Should it be a list view, grid view, or any other specific layout?
-Are there any design guidelines or wireframes available for the news section?
-Is there a need for any additional interactive elements such as liking, sharing, or commenting on news articles?
-```
-- Push Notifications:
-```
-Do you want to send push notifications to users when new articles are posted?
-If push notifications are required, do you have an existing push notification service or preference for a particular platform (e.g., Firebase Cloud Messaging, Azure Notification Hubs)?
-```
-- Offline Access:
-```
-Is there a requirement for users to access previously viewed news articles while offline?
-Should the application cache news articles for offline reading, and if so, how many articles should be stored and for how long?
-```
-- Localization:
-```
-Do you require support for displaying news content in multiple languages?
-Should the application automatically detect the user's language or provide language selection options?
-```
-- Performance and Scalability:
-```
-Do you anticipate a large number of users accessing the news section simultaneously?
-Are there any performance or scalability requirements, such as handling high traffic or optimizing image loading?
-```
-- Analytics and Reporting:
-```
-Do you need any tracking or analytics features to monitor user engagement with news articles, such as views, likes, or shares?
-Are there any specific metrics or reports that you would like to capture for the news section?
-```
+- Design the User Interface (UI / UX):
+
+Decide on the layout and appearance of the news section within the home tab.
+Consider using a ListView or RecyclerView to display the news articles in a scrollable list.
+
+- Fetching News Data:
+
+Determine the source(s) from where I will retrieve the news data. This could be an API, RSS feed, or a content management system (CMS) if the client has one.
+Implement the necessary logic to fetch news data from the chosen source(s).
+Use libraries like Newtonsoft.Json or System.Net.Http for making HTTP requests and handling JSON data.
+- Parse and Store News Data:
+
+Receive the news data, parse it according to the provided format (JSON, XML, etc.).
+Extract relevant information such as article title, description, publication date, and image URL.
+Create a model class to represent the news articles and store this data in an appropriate data structure, such as a List<NewsItem>.
+- Displaying News Articles:
+
+Bind the list of news articles to the UI component (ListView/RecyclerView) to populate the view with the retrieved data.
+Customize the item layout to display the relevant information, including the article title, description, and thumbnail image.
+Handle user interaction events, such as tapping on a news article to open the full article or view more details.
+- Periodic Content Updates:
+
+To provide weekly or fortnightly updates, And It is needed to trigger the news data fetching periodically.
+Schedule background tasks or use services like Firebase Cloud Messaging (FCM) to notify the app about new content availability.
+Update the news data in the app's storage and refresh the UI accordingly.
+- Caching and Offline Support:
+
+Implement a caching mechanism to store previously fetched news articles on the device.
+Consider using technologies like SQLite, Realm, or Xamarin.Essentials Preferences for local storage.
+Enable offline support by allowing users to access previously loaded news articles when there is no internet connection.
+- Error Handling and Exceptional Cases:
+
+Implement appropriate error handling mechanisms to handle cases such as network failures, server errors, or parsing issues.
+Show relevant error messages or fallback content when news data cannot be retrieved.
+Provide an option for users to refresh the news section manually if necessary.
