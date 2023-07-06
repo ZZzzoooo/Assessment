@@ -56,5 +56,14 @@ namespace UndoAssessment.Services
         {
             return await Task.FromResult(items);
         }
+
+        private UserModel user;
+        
+        public UserModel User
+        {
+            get { return user; }
+            set { user = value; }
+        }
+
     }
 }

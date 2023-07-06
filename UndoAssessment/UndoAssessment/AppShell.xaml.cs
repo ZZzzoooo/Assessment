@@ -11,6 +11,8 @@ namespace UndoAssessment
         public AppShell()
         {
             InitializeComponent();
+            Routing.RegisterRoute(nameof(CatePage), typeof(CatePage));
+            Routing.RegisterRoute(nameof(UserFormPage), typeof(UserFormPage));
             Routing.RegisterRoute(nameof(ItemDetailPage), typeof(ItemDetailPage));
             Routing.RegisterRoute(nameof(NewItemPage), typeof(NewItemPage));
         }
