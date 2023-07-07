@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="UndoAssessment.Views.UserFormPage"
+    xmlns:res="clr-namespace:UndoAssessment.Resources"
+    xmlns:vm="clr-namespace:UndoAssessment.ViewModels"
+    BindingContext="{Binding UserForm, Source={StaticResource ViewModelLocator}}"
+    Title="{Static res:AppResources.UserForm}"
+    x:DataType="vm:UserFormViewModel">
+    <ContentPage.Content>
+        <StackLayout>
+            <Entry Text="{Binding UserName}" Placeholder="{Static res:AppResources.Name}" />
+            <Entry Text="{Binding UserAge}" Placeholder="{Static res:AppResources.Age}" />
+            <Button Text="{Static res:AppResources.Submit}" Command="{Binding SubmitCommand}" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
+
