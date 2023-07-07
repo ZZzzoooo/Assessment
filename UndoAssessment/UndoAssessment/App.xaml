@@ -1,13 +1,33 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Application xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:UndoAssessment.ViewModels"
              x:Class="UndoAssessment.App">
     <!--
         Define global resources and styles here, that apply to all pages in your app.
     -->
+
     <Application.Resources>
         <ResourceDictionary>
+             <vm:ViewModelLocator x:Key="ViewModelLocator"/>
+
             <Color x:Key="Primary">#2196F3</Color>
+            
+            <Thickness x:Key="Padding">10</Thickness>
+            <x:Double x:Key="Spacing">10</x:Double>
+
+            <Style TargetType="StackLayout" ApplyToDerivedTypes="True">
+                <Setter Property="Spacing" Value="{StaticResource Spacing}" />
+                <Setter Property="Padding" Value="{StaticResource Padding}" />
+            </Style>
+
+            <Style TargetType="Grid" ApplyToDerivedTypes="True">
+                <Setter Property="ColumnSpacing" Value="{StaticResource Spacing}" />
+                <Setter Property="RowSpacing" Value="{StaticResource Spacing}" />
+                <Setter Property="Padding" Value="{StaticResource Padding}" />
+            </Style>
+
+
             <Style TargetType="Button">
                 <Setter Property="TextColor" Value="White"></Setter>
                 <Setter Property="VisualStateManager.VisualStateGroups">
