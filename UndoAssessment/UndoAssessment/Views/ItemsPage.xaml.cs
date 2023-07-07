@@ -34,15 +34,29 @@ namespace UndoAssessment.Views
 
         private async void Success_Clicked(object sender, EventArgs e)
         {
-            var result = await publicApi.GetSuccess();
-            await DisplayAlert("Get success", $"Message: {result.Message}", "OK");
+            try
+            {
+                var result = await publicApi.GetSuccess();
+                await DisplayAlert("Get success", $"Message: {result.Message}", "OK");
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert("Error during call api", $"Message: {ex.Message}", "OK");
+            }
         }
 
         private async void Fail_Clicked(object sender, EventArgs e)
         {
-            var result = await publicApi.GetFail();
+            try
+            {
+                var result = await publicApi.GetFail();
 
-            await DisplayAlert("Get fail", $"Message: {result.Message}", "OK");
+                await DisplayAlert("Get fail", $"Message: {result.Message}", "OK");
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert("Error during call api", $"Message: {ex.Message}", "OK");
+            }
         }
     }
 }
