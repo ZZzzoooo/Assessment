@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="UndoAssessment.Views.AssessmentPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <ContentPage.Content>
+        <Grid Padding="10,20" RowDefinitions="Auto, 1*, Auto">
+            <Button
+                Grid.Row="0"
+                Command="{Binding OpenFormCommand}"
+                HorizontalOptions="EndAndExpand"
+                Text="User form" />
+
+            <StackLayout
+                Grid.Row="1"
+                HorizontalOptions="CenterAndExpand"
+                Spacing="10"
+                VerticalOptions="CenterAndExpand">
+                <Label Text="{Binding UserName}" />
+                <Label Text="{Binding UserAge}" />
+            </StackLayout>
+
+            <StackLayout Grid.Row="2">
+                <Button
+                    BackgroundColor="ForestGreen"
+                    Command="{Binding SuccessCommand}"
+                    Text="Success" />
+                <Button
+                    BackgroundColor="OrangeRed"
+                    Command="{Binding FailCommand}"
+                    Text="Fail" />
+            </StackLayout>
+
+            <StackLayout
+                Grid.RowSpan="3"
+                Margin="-20"
+                BackgroundColor="Black"
+                HorizontalOptions="FillAndExpand"
+                IsVisible="{Binding IsUserFormVisible}"
+                Opacity="0.5"
+                VerticalOptions="FillAndExpand" />
+
+            <Frame
+                Grid.RowSpan="3"
+                Margin="-10,0,-10,-40"
+                Padding="15"
+                BackgroundColor="White"
+                CornerRadius="14"
+                HasShadow="False"
+                IsVisible="{Binding IsUserFormVisible, Mode=TwoWay}"
+                VerticalOptions="EndAndExpand">
+                <StackLayout BackgroundColor="White">
+                    <Label
+                        Margin="0,20"
+                        FontAttributes="Bold"
+                        HorizontalOptions="CenterAndExpand"
+                        Text="User form"
+                        VerticalOptions="CenterAndExpand" />
+                    <StackLayout
+                        Margin="30"
+                        Spacing="20"
+                        VerticalOptions="FillAndExpand">
+                        <StackLayout>
+                            <Label Text="Name: " VerticalOptions="CenterAndExpand" />
+                            <Entry
+                                HorizontalOptions="FillAndExpand"
+                                Text="{Binding UserName}"
+                                VerticalOptions="CenterAndExpand" />
+                        </StackLayout>
+                        <StackLayout>
+                            <Label Text="Age: " VerticalOptions="CenterAndExpand" />
+                            <Entry
+                                HorizontalOptions="FillAndExpand"
+                                Text="{Binding UserAge}"
+                                VerticalOptions="CenterAndExpand" />
+                        </StackLayout>
+
+                        <Button
+                            Command="{Binding SubmitCommand}"
+                            HorizontalOptions="CenterAndExpand"
+                            Text="Submit" />
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
