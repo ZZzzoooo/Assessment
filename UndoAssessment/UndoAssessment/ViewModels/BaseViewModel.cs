@@ -7,11 +7,18 @@ using Xamarin.Forms;
 
 using UndoAssessment.Models;
 using UndoAssessment.Services;
+using System.Threading.Tasks;
+using Acr.UserDialogs;
+using AsyncAwaitBestPractices;
+using UndoAssessment.Services.Interfaces;
 
 namespace UndoAssessment.ViewModels
 {
     public class BaseViewModel : INotifyPropertyChanged
     {
+        private IApiService _apiService;
+        protected IApiService ApiService => _apiService ??= DependencyService.Get<IApiService>();
+
         public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>();
 
         bool isBusy = false;
@@ -39,6 +46,50 @@ namespace UndoAssessment.ViewModels
             onChanged?.Invoke();
             OnPropertyChanged(propertyName);
             return true;
+        }
+
+        protected async Task<T> TryDataProcessing<T>(Func<Task<T>> func,
+           bool presentBusyState = true, bool showLoading = true, bool showDialogMessage = false)
+        {
+            if (showLoading)
+            {
+                Device.BeginInvokeOnMainThread(() =>
+                {
+                    UserDialogs.Instance.ShowLoading();
+                });
+            }
+            try
+            {
+                if (presentBusyState) 
+                    IsBusy = true;
+
+                T result;
+                try
+                {
+                    result = await func();
+                    return result;
+                }
+                catch (Exception e)
+                {
+                    if (showDialogMessage)
+                        UserDialogs.Instance.AlertAsync(e.Message).SafeFireAndForget();
+
+                    return default;
+                }
+            }
+            finally
+            {
+                if (presentBusyState)
+                    IsBusy = false;
+
+                if (showLoading)
+                {
+                    Device.BeginInvokeOnMainThread(() =>
+                    {
+                        UserDialogs.Instance.HideLoading();
+                    });
+                }
+            }
         }
 
         #region INotifyPropertyChanged
