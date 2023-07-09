@@ -6,7 +6,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Acr.UserDialogs" Version="7.2.0.564" />
+    <PackageReference Include="Autofac" Version="7.0.1" />
+    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="8.0.0" />
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2578" />  
     <PackageReference Include="Xamarin.Essentials" Version="1.7.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\UndoAssessment.Api\UndoAssessment.Api.csproj" />
+    <ProjectReference Include="..\UndoAssessment.Domain\UndoAssessment.Domain.csproj" />
+    <ProjectReference Include="..\UndoAssessment.Service.Contract\UndoAssessment.Service.Contract.csproj" />
+    <ProjectReference Include="..\UndoAssessment.ViewModels\UndoAssessment.ViewModels.csproj" />
+    <ProjectReference Include="..\UndoAssessment.View\UndoAssessment.View.csproj" />
   </ItemGroup>
 </Project>
