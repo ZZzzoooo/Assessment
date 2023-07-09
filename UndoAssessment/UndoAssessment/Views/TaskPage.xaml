@@ -3,6 +3,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:UndoAssessment.ViewModels"
+             xmlns:events="clr-namespace:Basil.Behaviors.Events;assembly=Basil.Behaviors"
+             xmlns:standart="clr-namespace:Basil.Behaviors.Animations.Standart;assembly=Basil.Behaviors"
              Title="{Binding Title}"
              x:Class="UndoAssessment.Views.TaskPage"
              x:DataType="local:TaskViewModel">
@@ -24,10 +26,24 @@
                Text="{Binding User.Age, StringFormat='Age: {0}'}"/>
             
         <Button Text="Success"
-                Command="{Binding  SuccessCommand}"/>
+                Command="{Binding  SuccessCommand}">
+            <Button.Behaviors>
+                <events:EventToMultipleHandlersBehavior EventName="Clicked">
+                    <standart:ScaleAnimation Length="200" Scale="0.8" />
+                    <standart:ScaleAnimation Length="400" Scale="1" Easing="{x:Static Easing.BounceOut}" />
+                </events:EventToMultipleHandlersBehavior>
+            </Button.Behaviors>
+        </Button>
         
         <Button Text="Error"
-                Command="{Binding  ErrorCommand}"/>
+                Command="{Binding  ErrorCommand}">
+            <Button.Behaviors>
+                <events:EventToMultipleHandlersBehavior EventName="Clicked">
+                    <standart:ScaleAnimation Length="200" Scale="0.8" />
+                    <standart:ScaleAnimation Length="400" Scale="1" Easing="{x:Static Easing.BounceOut}" />
+                </events:EventToMultipleHandlersBehavior>
+            </Button.Behaviors>
+        </Button>
             
     </StackLayout>
     
