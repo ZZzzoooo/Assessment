@@ -1,14 +1,14 @@
-using UndoAssessment.ViewModels;
-using Xamarin.Forms;
+using UndoAssessment.Common.Navigation;
+using UndoAssessment.Domain.Navigation.Attributes;
 
 namespace UndoAssessment.View
 {
-    public partial class UserDataFormPage : ContentPage
+    [PageRegistration(NavigationTag = NavigationTags.UserData)]
+    public partial class UserDataFormPage
     {
         public UserDataFormPage()
         {
             InitializeComponent();
-            BindingContext = new UserDataFormViewModel();
         }
     }
 }

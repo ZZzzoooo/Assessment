@@ -3,12 +3,13 @@ using UndoAssessment.Domain.Navigation.Attributes;
 
 namespace UndoAssessment.View
 {
-    [PageRegistration(NavigationTag = NavigationTags.NewItem)]
-    public partial class NewItemPage
+    [PageRegistration(NavigationTag = NavigationTags.Main)]
+    public partial class AppShell
     {
-        public NewItemPage()
+        public AppShell()
         {
             InitializeComponent();
         }
     }
 }
+

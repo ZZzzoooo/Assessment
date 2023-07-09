@@ -1,11 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="UndoAssessment.View.ItemsPage"
-             Title="{Binding Title}"
-             xmlns:viewModels="clr-namespace:UndoAssessment.ViewModels;assembly=UndoAssessment.ViewModels"
-             xmlns:models="clr-namespace:UndoAssessment.Common.Models;assembly=UndoAssessment.Common"
-             x:Name="BrowseItemsPage">
+<view:BasePage
+          xmlns="http://xamarin.com/schemas/2014/forms"
+          xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+          x:Class="UndoAssessment.View.ItemsPage"
+          Title="{Binding Title}"
+          xmlns:viewModels="clr-namespace:UndoAssessment.ViewModels;assembly=UndoAssessment.ViewModels"
+          xmlns:models="clr-namespace:UndoAssessment.Common.Models;assembly=UndoAssessment.Common"
+          xmlns:view="clr-namespace:UndoAssessment.View;assembly=UndoAssessment.View"
+          x:Name="BrowseItemsPage">
 
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Add" Command="{Binding AddItemCommand}" />
@@ -41,5 +43,5 @@
             </CollectionView.ItemTemplate>
         </CollectionView>
     </RefreshView>
-</ContentPage>
+</view:BasePage>
 

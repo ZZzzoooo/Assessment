@@ -1,9 +1,12 @@
 ﻿using System.Windows.Input;
+using UndoAssessment.Common.Navigation;
 using UndoAssessment.Common.Tools;
+using UndoAssessment.Domain.Navigation.Attributes;
 using Xamarin.Essentials;
 
 namespace UndoAssessment.ViewModels
 {
+    [ViewModelRegistration(NavigationTag = NavigationTags.AboutPage)]
     public class AboutViewModel : BaseViewModel
     {
         public ICommand OpenWebCommand { get; }

@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:events="clr-namespace:Basil.Behaviors.Events;assembly=Basil.Behaviors"
-             xmlns:standart="clr-namespace:Basil.Behaviors.Animations.Standart;assembly=Basil.Behaviors"
-             xmlns:viewModels="clr-namespace:UndoAssessment.ViewModels;assembly=UndoAssessment.ViewModels"
-             Title="{Binding Title}"
-             x:Class="UndoAssessment.View.TaskPage"
-             x:DataType="viewModels:TaskViewModel">
+<view:BasePage
+          xmlns="http://xamarin.com/schemas/2014/forms"
+          xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+          xmlns:events="clr-namespace:Basil.Behaviors.Events;assembly=Basil.Behaviors"
+          xmlns:standart="clr-namespace:Basil.Behaviors.Animations.Standart;assembly=Basil.Behaviors"
+          xmlns:viewModels="clr-namespace:UndoAssessment.ViewModels;assembly=UndoAssessment.ViewModels"
+          xmlns:view="clr-namespace:UndoAssessment.View;assembly=UndoAssessment.View"
+          Title="{Binding Title}"
+          x:Class="UndoAssessment.View.TaskPage"
+          x:DataType="viewModels:TaskViewModel">
     
     <ContentPage.ToolbarItems>
         
@@ -47,4 +49,4 @@
             
     </StackLayout>
     
-</ContentPage>
+</view:BasePage>

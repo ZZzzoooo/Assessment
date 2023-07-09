@@ -1,12 +1,20 @@
 ﻿using System;
 using System.Threading.Tasks;
 using UndoAssessment.Common.Models;
+using UndoAssessment.Common.Navigation;
 using UndoAssessment.Common.Tools;
+using UndoAssessment.Domain.Navigation;
+using UndoAssessment.Domain.Navigation.Attributes;
+using UndoAssessment.Service.Contract.Storage;
 
 namespace UndoAssessment.ViewModels
 {
+    [ViewModelRegistration(NavigationTag = NavigationTags.NewItem)]
     public class NewItemViewModel : BaseViewModel
     {
+        private readonly INavigationService _navigationService;
+        private readonly IDataStore<Item> _dataStore;
+        
         private string _text;
         public string Text
         {
@@ -24,10 +32,11 @@ namespace UndoAssessment.ViewModels
         public AsyncCommand SaveCommand { get; }
         
         public AsyncCommand CancelCommand { get; }
-
         
-        public NewItemViewModel()
+        public NewItemViewModel(INavigationService navigationService, IDataStore<Item> dataStore)
         {
+            _navigationService = navigationService;
+            _dataStore = dataStore;
             SaveCommand = new AsyncCommand(OnSave, ValidateSave);
             CancelCommand = new AsyncCommand(OnCancel);
             PropertyChanged += 
@@ -40,10 +49,9 @@ namespace UndoAssessment.ViewModels
                 && !String.IsNullOrWhiteSpace(_description);
         }
 
-        private async Task OnCancel()
+        private Task OnCancel()
         {
-            // This will pop the current page off the navigation stack
-            return Shell.Current.GoToAsync("..");
+            return _navigationService.NavigateBackAsync();
         }
 
         private async Task OnSave()
@@ -55,10 +63,10 @@ namespace UndoAssessment.ViewModels
                 Description = Description
             };
             
-            await DataStore.AddItemAsync(newItem);
+            await _dataStore.AddItemAsync(newItem);
 
             // This will pop the current page off the navigation stack
-            await Shell.Current.GoToAsync("..");
+            await _navigationService.NavigateBackAsync();
         }
     }
 }

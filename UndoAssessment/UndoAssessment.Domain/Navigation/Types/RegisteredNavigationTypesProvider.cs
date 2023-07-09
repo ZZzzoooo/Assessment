@@ -10,10 +10,11 @@ namespace UndoAssessment.Domain.Navigation.Types
         public IEnumerable<NavigationTypeRegistration> GetRegistrations<TAttribute>(string assembly)
             where TAttribute : NavigationAttribute
         {
-            var navigationTypes = AppDomain.CurrentDomain
+            var allTypes = AppDomain.CurrentDomain
                 .GetAssemblies()
                 .First(a => a.FullName.Contains(assembly))
-                .GetTypes()
+                .GetTypes();
+            var navigationTypes = allTypes
                 .Where(t => t.CustomAttributes.Any(a => a.AttributeType == typeof(TAttribute)))
                 .ToList();
 

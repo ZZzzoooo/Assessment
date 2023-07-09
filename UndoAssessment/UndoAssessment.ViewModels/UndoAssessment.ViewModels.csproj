@@ -10,6 +10,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\UndoAssessment.Api\UndoAssessment.Api.csproj" />
+      <ProjectReference Include="..\UndoAssessment.Domain\UndoAssessment.Domain.csproj" />
       <ProjectReference Include="..\UndoAssessment.Service.Contract\UndoAssessment.Service.Contract.csproj" />
     </ItemGroup>
     

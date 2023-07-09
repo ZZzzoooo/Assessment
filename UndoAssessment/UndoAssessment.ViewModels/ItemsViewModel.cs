@@ -1,15 +1,24 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using UndoAssessment.Common.Models;
+using UndoAssessment.Common.Navigation;
 using UndoAssessment.Common.Tools;
+using UndoAssessment.Domain;
+using UndoAssessment.Domain.Navigation.Attributes;
+using UndoAssessment.Service.Contract.Storage;
 
 namespace UndoAssessment.ViewModels
 {
-    public class ItemsViewModel : BaseViewModel
+    [ViewModelRegistration(NavigationTag = NavigationTags.ItemsPage)]
+    public class ItemsViewModel : BaseViewModel, INavigated
     {
+        private readonly INavigationService _navigationService;
+        private readonly IDataStore<Item> _dataStore;
+        
         private Item _selectedItem;
 
         public ObservableCollection<Item> Items { get; }
@@ -17,8 +26,12 @@ namespace UndoAssessment.ViewModels
         public ICommand AddItemCommand { get;  }
         public AsyncCommand<Item> ItemTapped { get; }
 
-        public ItemsViewModel()
+        public ItemsViewModel(
+            IDataStore<Item> dataStore,
+            INavigationService navigationService)
         {
+            _navigationService = navigationService;
+            _dataStore = dataStore;
             Title = "Browse";
             Items = new ObservableCollection<Item>();
             LoadItemsCommand = new AsyncCommand(ExecuteLoadItemsCommand);
@@ -33,7 +46,7 @@ namespace UndoAssessment.ViewModels
             try
             {
                 Items.Clear();
-                var items = await DataStore.GetItemsAsync(true);
+                var items = await _dataStore.GetItemsAsync(true);
                 foreach (var item in items)
                 {
                     Items.Add(item);
@@ -49,10 +62,11 @@ namespace UndoAssessment.ViewModels
             }
         }
 
-        public void OnAppearing()
+        public Task NavigatedAsync(NavigationData data)
         {
             IsBusy = true;
             SelectedItem = null;
+            return Task.CompletedTask;
         }
 
         public Item SelectedItem
@@ -65,18 +79,18 @@ namespace UndoAssessment.ViewModels
             }
         }
 
-        private async Task OnAddItem(object obj)
+        private Task OnAddItem(object obj)
         {
-            await Shell.Current.GoToAsync(nameof(NewItemPage));
+            return _navigationService.NavigateAsync(NavigationTags.NewItem);
         }
 
-        private async Task OnItemSelected(Item item)
+        private Task OnItemSelected(Item item)
         {
             if (item == null)
-                return;
+                return Task.CompletedTask;
 
-            // This will push the ItemDetailPage onto the navigation stack
-            await Shell.Current.GoToAsync($"{nameof(ItemDetailPage)}?{nameof(ItemDetailViewModel.ItemId)}={item.Id}");
+            return _navigationService.NavigateAsync(NavigationTags.ItemDetails,
+                new KeyValuePair<string, object>("ItemId", item.Id));
         }
     }
 }

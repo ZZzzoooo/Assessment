@@ -3,7 +3,7 @@
        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
        xmlns:view="clr-namespace:UndoAssessment.View;assembly=UndoAssessment.View"
        Title="UndoAssessment"
-       x:Class="UndoAssessment.AppShell">
+       x:Class="UndoAssessment.View.AppShell">
 
     <!--
         The overall app visual hierarchy is defined here, along with navigation.
@@ -31,8 +31,8 @@
 
     <TabBar>
         <ShellContent Title="About" Icon="icon_about.png" Route="AboutPage" ContentTemplate="{DataTemplate view:AboutPage}" />
-        <ShellContent Title="Browse" Icon="icon_feed.png" ContentTemplate="{DataTemplate view:ItemsPage}" />
-        <ShellContent Title="Task" Icon="icon_feed.png" ContentTemplate="{DataTemplate view:TaskPage}" />
+        <ShellContent Title="Browse" Icon="icon_feed.png" Route="ItemsPage" ContentTemplate="{DataTemplate view:ItemsPage}" />
+        <ShellContent Title="Task" Icon="icon_feed.png" Route="TaskPage" ContentTemplate="{DataTemplate view:TaskPage}" />
     </TabBar>
 
     <!--

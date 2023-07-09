@@ -1,9 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:viewModels="clr-namespace:UndoAssessment.ViewModels;assembly=UndoAssessment.ViewModels"
-             x:Class="UndoAssessment.View.AboutPage"
-             Title="{Binding Title}">
+<view:BasePage
+          xmlns="http://xamarin.com/schemas/2014/forms"
+          xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+          xmlns:viewModels="clr-namespace:UndoAssessment.ViewModels;assembly=UndoAssessment.ViewModels"
+          xmlns:view="clr-namespace:UndoAssessment.View;assembly=UndoAssessment.View"
+          x:Class="UndoAssessment.View.AboutPage"
+          Title="{Binding Title}">
     
     <ContentPage.BindingContext>
         <viewModels:AboutViewModel />
@@ -49,5 +51,5 @@
         </ScrollView>
     </Grid>
 
-</ContentPage>
+</view:BasePage>
 

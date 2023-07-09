@@ -1,14 +1,10 @@
-﻿using UndoAssessment.ViewModels;
-using Xamarin.Forms;
-
-namespace UndoAssessment.View
+﻿namespace UndoAssessment.View
 {
-    public partial class LoginPage : ContentPage
+    public partial class LoginPage
     {
         public LoginPage()
         {
             InitializeComponent();
-            BindingContext = new LoginViewModel();
         }
     }
 }

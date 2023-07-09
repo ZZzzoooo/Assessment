@@ -4,18 +4,23 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using UndoAssessment.Api;
 using UndoAssessment.Common.Models;
+using UndoAssessment.Common.Navigation;
 using UndoAssessment.Common.Tools;
+using UndoAssessment.Domain;
+using UndoAssessment.Domain.Navigation.Attributes;
 using UndoAssessment.Service.Contract.Dialogs;
 
 namespace UndoAssessment.ViewModels
 {
-    public class TaskViewModel : BaseViewModel
+    [ViewModelRegistration(NavigationTag = NavigationTags.TaskPage)]
+    public class TaskViewModel : BaseViewModel, INavigated
     {
         //This is awful, but without normal navigation service hardly to get back some results
         public static UserData UserData;
         
-        private IApiService _apiService;
-        private IDialogsService _dialogsService;
+        private readonly IApiService _apiService;
+        private readonly IDialogsService _dialogsService;
+        private readonly INavigationService _navigationService;
         
         public bool IsUserDataCreated { get; set; }
         public UserData User { get; set; }
@@ -23,17 +28,18 @@ namespace UndoAssessment.ViewModels
         public ICommand SuccessCommand { get; }
         public ICommand ErrorCommand { get; }
 
-        public TaskViewModel()
+        public TaskViewModel(IApiService apiService, IDialogsService dialogsService, INavigationService navigationService)
         {
+            _apiService = apiService;
+            _dialogsService = dialogsService;
+            _navigationService = navigationService;
+
             SuccessCommand = new AsyncCommand(OnSuccessCommand);
             ErrorCommand = new AsyncCommand(OnErrorCommand);
             UpdateUserDataCommand = new AsyncCommand(OnUpdateUserDataCommand);
             
             IsUserDataCreated = false;
             User = UserData;
-
-            _apiService = DependencyService.Resolve<IApiService>();
-            _dialogsService = DependencyService.Resolve<IDialogsService>();
         }
 
         private async Task OnSuccessCommand()
@@ -66,17 +72,18 @@ namespace UndoAssessment.ViewModels
             }
         }
 
-        private async Task OnUpdateUserDataCommand()
+        private Task OnUpdateUserDataCommand()
         {
-            return Shell.Current.GoToAsync(nameof(UserDataFormPage));
+            return _navigationService.NavigateAsync(NavigationTags.UserData);
         }
 
-        public void OnAppearing()
+        public Task NavigatedAsync(NavigationData data)
         {
             User = UserData;
             IsUserDataCreated = User != null;
             OnPropertyChanged(nameof(IsUserDataCreated));
             OnPropertyChanged(nameof(User));
+            return Task.CompletedTask;
         }
     }
 }

@@ -1,22 +1,26 @@
 ﻿using System.Threading.Tasks;
 using System.Windows.Input;
+using UndoAssessment.Common.Navigation;
 using UndoAssessment.Common.Tools;
+using UndoAssessment.Domain.Navigation;
 
 namespace UndoAssessment.ViewModels
 {
     public class LoginViewModel : BaseViewModel
     {
+        private readonly INavigationService _navigationService;
+        
         public ICommand LoginCommand { get; }
 
-        public LoginViewModel()
+        public LoginViewModel(INavigationService navigationService)
         {
+            _navigationService = navigationService;
             LoginCommand = new AsyncCommand(OnLoginClicked);
         }
 
-        private async Task OnLoginClicked(object obj)
+        private Task OnLoginClicked(object obj)
         {
-            // Prefixing with `//` switches to a different navigation stack instead of pushing to the active one
-            return Shell.Current.GoToAsync($"//{nameof(AboutPage)}");
+            return _navigationService.NavigateBackAsync();
         }
     }
 }
