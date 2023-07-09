@@ -1,6 +1,6 @@
 using System;
 
-namespace UndoAssessment.Models
+namespace UndoAssessment.Api.Models
 {
     public class ApiResponse
     {

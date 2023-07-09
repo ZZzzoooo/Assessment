@@ -1,9 +1,9 @@
 using System.Net.Http;
 using System.Threading.Tasks;
-using UndoAssessment.Extensions;
-using UndoAssessment.Models;
+using UndoAssessment.Api.Extensions;
+using UndoAssessment.Api.Models;
 
-namespace UndoAssessment.Services.Api
+namespace UndoAssessment.Api
 {
     public class TaskApiService : IApiService
     {

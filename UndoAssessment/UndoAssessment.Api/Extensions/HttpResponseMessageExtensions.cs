@@ -1,7 +1,7 @@
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace UndoAssessment.Extensions
+namespace UndoAssessment.Api.Extensions
 {
     public static class HttpResponseMessageExtensions
     {

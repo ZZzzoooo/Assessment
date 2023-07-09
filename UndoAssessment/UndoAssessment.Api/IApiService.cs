@@ -1,7 +1,7 @@
 using System.Threading.Tasks;
-using UndoAssessment.Models;
+using UndoAssessment.Api.Models;
 
-namespace UndoAssessment.Services.Api
+namespace UndoAssessment.Api
 {
     public interface IApiService
     {

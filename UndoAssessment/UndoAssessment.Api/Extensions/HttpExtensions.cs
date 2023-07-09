@@ -3,7 +3,7 @@ using System.Text;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
-namespace UndoAssessment.Extensions
+namespace UndoAssessment.Api.Extensions
 {
     public static class HttpExtensions
     {

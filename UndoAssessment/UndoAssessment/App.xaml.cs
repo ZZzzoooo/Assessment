@@ -1,11 +1,7 @@
-﻿using System;
+﻿using UndoAssessment.Api;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
-using UndoAssessment.Services;
-using UndoAssessment.Services.Api;
 using UndoAssessment.Services.Dialogs;
 using UndoAssessment.Services.Storage;
-using UndoAssessment.Views;
 
 namespace UndoAssessment
 {
