@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using UndoAssessment.Models;
 
-namespace UndoAssessment.Services
+namespace UndoAssessment.Services.Storage
 {
     public class MockDataStore : IDataStore<Item>
     {

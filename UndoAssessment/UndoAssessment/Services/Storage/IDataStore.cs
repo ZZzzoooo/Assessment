@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace UndoAssessment.Services
+namespace UndoAssessment.Services.Storage
 {
     public interface IDataStore<T>
     {
