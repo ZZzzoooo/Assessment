@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using UndoAssessment.Common.Models;
@@ -31,13 +32,14 @@ namespace UndoAssessment.ViewModels
 
         private async Task OnSaveCommand()
         {
-            TaskViewModel.UserData = new UserData
+            var u = new UserData
             {
                 Name = Name,
                 Age = Age
             };
             
-            await _navigationService.NavigateBackAsync();
+            await _navigationService.NavigateBackAsync(
+                new KeyValuePair<string, object>("UserData", u));
         }
     }
 }

@@ -15,9 +15,6 @@ namespace UndoAssessment.ViewModels
     [ViewModelRegistration(NavigationTag = NavigationTags.TaskPage)]
     public class TaskViewModel : BaseViewModel, INavigated
     {
-        //This is awful, but without normal navigation service hardly to get back some results
-        public static UserData UserData;
-        
         private readonly IApiService _apiService;
         private readonly IDialogsService _dialogsService;
         private readonly INavigationService _navigationService;
@@ -39,7 +36,6 @@ namespace UndoAssessment.ViewModels
             UpdateUserDataCommand = new AsyncCommand(OnUpdateUserDataCommand);
             
             IsUserDataCreated = false;
-            User = UserData;
         }
 
         private async Task OnSuccessCommand()
@@ -79,7 +75,8 @@ namespace UndoAssessment.ViewModels
 
         public Task NavigatedAsync(NavigationData data)
         {
-            User = UserData;
+            if (data.Parameters.ContainsKey("UserData"))
+                User = data.Parameters["UserData"] as UserData;
             IsUserDataCreated = User != null;
             OnPropertyChanged(nameof(IsUserDataCreated));
             OnPropertyChanged(nameof(User));
