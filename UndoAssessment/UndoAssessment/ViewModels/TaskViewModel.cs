@@ -1,11 +1,14 @@
 using System;
 using System.Diagnostics;
+using UndoAssessment.Services.Api;
 using Xamarin.Forms;
 
 namespace UndoAssessment.ViewModels
 {
     public class TaskViewModel : BaseViewModel
     {
+        private IApiService _apiService;
+        
         public Command SuccessCommand { get; }
         public Command ErrorCommand { get; }
 
@@ -13,13 +16,15 @@ namespace UndoAssessment.ViewModels
         {
             SuccessCommand = new Command(OnSuccessCommand);
             ErrorCommand = new Command(OnErrorCommand);
+
+            _apiService = DependencyService.Resolve<IApiService>();
         }
 
-        private async void OnSuccessCommand()
+        private async void OnErrorCommand()
         {
             try
             {
-
+                var response = _apiService.ErrorAsync();
             }
             catch (Exception e)
             {
@@ -29,11 +34,11 @@ namespace UndoAssessment.ViewModels
             }
         }
 
-        private async void OnErrorCommand()
+        private async void OnSuccessCommand()
         {
             try
             {
-                
+                var response = _apiService.SuccessAsync();
             }
             catch (Exception e)
             {

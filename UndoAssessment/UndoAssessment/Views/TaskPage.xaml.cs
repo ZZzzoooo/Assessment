@@ -1,3 +1,4 @@
+using UndoAssessment.ViewModels;
 using Xamarin.Forms;
 
 namespace UndoAssessment.Views
@@ -7,6 +8,7 @@ namespace UndoAssessment.Views
         public TaskPage()
         {
             InitializeComponent();
+            BindingContext = new TaskViewModel();
         }
     }
 }
