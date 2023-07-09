@@ -1,6 +1,5 @@
-﻿using System.ComponentModel;
+﻿using UndoAssessment.ViewModels;
 using Xamarin.Forms;
-using UndoAssessment.ViewModels;
 
 namespace UndoAssessment.Views
 {

@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    ios:Page.UseSafeArea="true"
+    NavigationPage.HasBackButton="False"
+    x:Class="UndoAssessment.Views.TestApiPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem
+            Text="User Info"
+            Command="{Binding UserInfoCommand}" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="CenterAndExpand">
+            <!-- User Info Frame -->
+            <StackLayout
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                Margin="0,40"
+                IsVisible="{Binding IsUserInfoVisible}">
+                <Frame BorderColor="Red">
+                    <StackLayout>
+                        <Label
+                            Text="{Binding UserName}"
+                            FontSize="16"
+                            Margin="20"
+                            HorizontalTextAlignment="Center"/>
+                        <Label
+                            Text="{Binding Age}"
+                            FontSize="16"
+                            Margin="20"
+                            HorizontalTextAlignment="Center"/>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+
+            <!-- Buttons For Api Call -->
+            <StackLayout
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                Spacing="40">
+                <Button
+                    Text="Test Success API"
+                    Padding="10"
+                    Command="{Binding SuccessfulCommand}"/>
+                <Button
+                    Text="Test Fail API"
+                    Padding="10"
+                    Command="{Binding FailureCommand}"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

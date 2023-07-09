@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    ios:Page.UseSafeArea="true"
+    Shell.NavBarIsVisible="False"
+    x:Class="UndoAssessment.Views.UserInfoPage">
+    <ContentPage.Content>
+        <!-- User Info -->
+        <StackLayout
+            HorizontalOptions="Center"
+            Spacing="20">
+            <Label
+                Text="Insert Your Info"
+                TextColor="Black"
+                FontSize="20"
+                Margin="20"/>
+            <Frame
+                BorderColor="LightGray"
+                HasShadow="False"
+                Padding="0">
+                <Entry
+                    Placeholder="Insert your name"
+                    TextColor="Black"
+                    PlaceholderColor="Black"
+                    Text="{Binding UserName}"
+                    FontSize="20"/>
+            </Frame>
+            <Frame
+                BorderColor="LightGray"
+                HasShadow="False"
+                Padding="0">
+                <Entry
+                    Placeholder="Insert your age"
+                    PlaceholderColor="Black"
+                    TextColor="Black"
+                    Text="{Binding Age}"
+                    FontSize="20"
+                    Keyboard="Numeric"/>
+            </Frame>
+            <Button
+                Text="Submit"
+                FontSize="20"
+                Margin="20"
+                Command="{Binding SubmitCommand}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

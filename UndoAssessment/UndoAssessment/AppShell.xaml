@@ -31,7 +31,8 @@
 
     <TabBar>
         <ShellContent Title="About" Icon="icon_about.png" Route="AboutPage" ContentTemplate="{DataTemplate local:AboutPage}" />
-        <ShellContent Title="Browse" Icon="icon_feed.png" ContentTemplate="{DataTemplate local:ItemsPage}" />
+        <ShellContent Title="Browse" Icon="icon_feed.png" Route="ItemsPage" ContentTemplate="{DataTemplate local:ItemsPage}" />
+        <ShellContent Title="Test API" Icon="api.png" Route="TestApiPage" ContentTemplate="{DataTemplate local:TestApiPage}" />
     </TabBar>
 
     <!--
@@ -41,7 +42,4 @@
     <TabBar>
         <ShellContent Route="LoginPage" ContentTemplate="{DataTemplate local:LoginPage}" />
     </TabBar>
-
-
 </Shell>
-
