@@ -24,7 +24,7 @@ namespace UndoAssessment.ViewModels
         {
             try
             {
-                var response = _apiService.ErrorAsync();
+                var response = await _apiService.ErrorAsync();
             }
             catch (Exception e)
             {
@@ -38,7 +38,7 @@ namespace UndoAssessment.ViewModels
         {
             try
             {
-                var response = _apiService.SuccessAsync();
+                var response = await _apiService.SuccessAsync();
             }
             catch (Exception e)
             {
