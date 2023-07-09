@@ -4,6 +4,6 @@ namespace UndoAssessment.Services.Dialogs
 {
     public interface IDialogsService
     {
-        Task AlertAsync(string message);
+        Task AlertAsync(string title, string message);
     }
 }

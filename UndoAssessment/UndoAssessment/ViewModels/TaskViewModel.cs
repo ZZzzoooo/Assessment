@@ -28,7 +28,7 @@ namespace UndoAssessment.ViewModels
             try
             {
                 var response = await _apiService.ErrorAsync();
-                await _dialogsService.AlertAsync(response.ToString());
+                await _dialogsService.AlertAsync(response.Message, response.ToString());
             }
             catch (Exception e)
             {
@@ -43,7 +43,7 @@ namespace UndoAssessment.ViewModels
             try
             {
                 var response = await _apiService.SuccessAsync();
-                await _dialogsService.AlertAsync(response.ToString());
+                await _dialogsService.AlertAsync(response.Message, response.ToString());
             }
             catch (Exception e)
             {

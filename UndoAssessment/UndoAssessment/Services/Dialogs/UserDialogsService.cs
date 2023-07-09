@@ -12,9 +12,9 @@ namespace UndoAssessment.Services.Dialogs
             _userDialogs = UserDialogs.Instance;
         }
         
-        public Task AlertAsync(string message)
+        public Task AlertAsync(string title, string message)
         {
-            return _userDialogs.AlertAsync(message, "Api Call");
+            return _userDialogs.AlertAsync(message, title);
         }
     }
 }
