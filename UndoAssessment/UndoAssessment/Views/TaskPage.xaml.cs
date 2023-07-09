@@ -5,10 +5,18 @@ namespace UndoAssessment.Views
 {
     public partial class TaskPage : ContentPage
     {
+        private TaskViewModel _viewModel;
+        
         public TaskPage()
         {
             InitializeComponent();
-            BindingContext = new TaskViewModel();
+            BindingContext = _viewModel = new TaskViewModel();
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            _viewModel.OnAppearing();
         }
     }
 }

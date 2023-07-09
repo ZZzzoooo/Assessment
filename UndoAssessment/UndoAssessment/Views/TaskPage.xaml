@@ -7,11 +7,25 @@
              x:Class="UndoAssessment.Views.TaskPage"
              x:DataType="local:TaskViewModel">
     
+    <ContentPage.ToolbarItems>
+        
+        <ToolbarItem Text="Add user data"
+                     Command="{Binding UpdateUserDataCommand}" />
+        
+    </ContentPage.ToolbarItems>
+    
     <StackLayout Padding="10"
                  Spacing="10">
+        
+        <Label IsVisible="{Binding IsUserDataCreated}"
+               Text="{Binding User.Name, StringFormat='Name: {0}'}"/>
+        
+        <Label IsVisible="{Binding IsUserDataCreated}"
+               Text="{Binding User.Age, StringFormat='Age: {0}'}"/>
             
         <Button Text="Success"
                 Command="{Binding  SuccessCommand}"/>
+        
         <Button Text="Error"
                 Command="{Binding  ErrorCommand}"/>
             
