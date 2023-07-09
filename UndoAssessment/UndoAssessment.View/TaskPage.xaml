@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:events="clr-namespace:Basil.Behaviors.Events;assembly=Basil.Behaviors"
+             xmlns:standart="clr-namespace:Basil.Behaviors.Animations.Standart;assembly=Basil.Behaviors"
+             xmlns:viewModels="clr-namespace:UndoAssessment.ViewModels;assembly=UndoAssessment.ViewModels"
+             Title="{Binding Title}"
+             x:Class="UndoAssessment.View.TaskPage"
+             x:DataType="viewModels:TaskViewModel">
+    
+    <ContentPage.ToolbarItems>
+        
+        <ToolbarItem Text="Add user data"
+                     Command="{Binding UpdateUserDataCommand}" />
+        
+    </ContentPage.ToolbarItems>
+    
+    <StackLayout Padding="10"
+                 Spacing="10">
+        
+        <Label IsVisible="{Binding IsUserDataCreated}"
+               Text="{Binding User.Name, StringFormat='Name: {0}'}"/>
+        
+        <Label IsVisible="{Binding IsUserDataCreated}"
+               Text="{Binding User.Age, StringFormat='Age: {0}'}"/>
+            
+        <Button Text="Success"
+                Command="{Binding  SuccessCommand}">
+            <Button.Behaviors>
+                <events:EventToMultipleHandlersBehavior EventName="Clicked">
+                    <standart:ScaleAnimation Length="200" Scale="0.8" />
+                    <standart:ScaleAnimation Length="400" Scale="1" Easing="{x:Static Easing.BounceOut}" />
+                </events:EventToMultipleHandlersBehavior>
+            </Button.Behaviors>
+        </Button>
+        
+        <Button Text="Error"
+                Command="{Binding  ErrorCommand}">
+            <Button.Behaviors>
+                <events:EventToMultipleHandlersBehavior EventName="Clicked">
+                    <standart:ScaleAnimation Length="200" Scale="0.8" />
+                    <standart:ScaleAnimation Length="400" Scale="1" Easing="{x:Static Easing.BounceOut}" />
+                </events:EventToMultipleHandlersBehavior>
+            </Button.Behaviors>
+        </Button>
+            
+    </StackLayout>
+    
+</ContentPage>

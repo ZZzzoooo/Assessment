@@ -1,5 +1,6 @@
 using System.Threading.Tasks;
 using Acr.UserDialogs;
+using UndoAssessment.Service.Contract.Dialogs;
 
 namespace UndoAssessment.Services.Dialogs
 {

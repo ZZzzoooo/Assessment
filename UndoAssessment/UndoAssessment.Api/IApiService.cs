@@ -1,5 +1,5 @@
 using System.Threading.Tasks;
-using UndoAssessment.Api.Models;
+using UndoAssessment.Common.Models;
 
 namespace UndoAssessment.Api
 {

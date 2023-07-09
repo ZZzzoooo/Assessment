@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using UndoAssessment.Models;
+using UndoAssessment.Common.Models;
+using UndoAssessment.Service.Contract.Storage;
 
 namespace UndoAssessment.Services.Storage
 {
