@@ -2,16 +2,19 @@
 
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="UndoAssessment.Views.TaskPage">
+             xmlns:local="clr-namespace:UndoAssessment.ViewModels"
+             Title="{Binding Title}"
+             x:Class="UndoAssessment.Views.TaskPage"
+             x:DataType="local:TaskViewModel">
     
-    <ContentPage.Content>
-        <StackLayout Padding="10"
-                     Spacing="10">
+    <StackLayout Padding="10"
+                 Spacing="10">
             
-            <Button Text="Success"/>
-            <Button Text="Error"/>
+        <Button Text="Success"
+                Command="{Binding  SuccessCommand}"/>
+        <Button Text="Error"
+                Command="{Binding  ErrorCommand}"/>
             
-        </StackLayout>
-    </ContentPage.Content>
+    </StackLayout>
     
 </ContentPage>
