@@ -11,10 +11,23 @@
     <ContentPage.Resources>
         <ResourceDictionary>
             <cnv:InvertedBoolConverter x:Key="invertedBool"/>
+            <cnv:NullOrEmptyStringToBoolConverter x:Key="emptyString"/>
+            <cnv:PositiveIntToBoolConverter x:Key="positiveNumber"/>
         </ResourceDictionary>
     </ContentPage.Resources>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="User"
+                 IconImageSource="user.png"
+                 Order="Primary"
+                     Command="{Binding AddUserDataCommand }"
+                 Priority="0" />
+    </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <StackLayout Orientation="Vertical" VerticalOptions="Center" HorizontalOptions="Center" Padding="5,0"  Spacing="20">
+        <StackLayout Orientation="Vertical"  HorizontalOptions="Center" Padding="5,10"  Spacing="20">
+
+            <Label Text="{Binding Name, StringFormat='User Name: {0}'}" IsVisible="{Binding Name, Converter={x:StaticResource emptyString}}" FontAttributes="Bold"/>
+            <Label Text="{Binding Age, StringFormat='User Age: {0}'}" IsVisible="{Binding Age, Converter={x:StaticResource positiveNumber}}" FontAttributes="Bold"/>
+
             <Button Text="Call First API Endpoint" Command="{Binding FetchSuccessfulCommand}" IsEnabled="{Binding IsBusy, Converter={x:StaticResource invertedBool}}"/>
             <Button Text="Call Second API Endpoint" Command="{Binding FetchFailedCommand}" IsEnabled="{Binding IsBusy, Converter={x:StaticResource invertedBool}}"/>
             <ActivityIndicator IsRunning="{Binding IsBusy}" HeightRequest="20" WidthRequest="20"/>
