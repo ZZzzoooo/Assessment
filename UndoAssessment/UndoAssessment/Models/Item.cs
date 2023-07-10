@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace UndoAssessment.Models
+﻿namespace UndoAssessment.Models
 {
     public class Item
     {
@@ -8,4 +6,6 @@ namespace UndoAssessment.Models
         public string Text { get; set; }
         public string Description { get; set; }
     }
+
+
 }
