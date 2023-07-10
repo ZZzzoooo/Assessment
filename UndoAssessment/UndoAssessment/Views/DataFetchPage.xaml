@@ -1,11 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="UndoAssessment.Views.DataFetchPage">
+             xmlns:vm="clr-namespace:UndoAssessment.ViewModels"
+             xmlns:cnv="clr-namespace:UndoAssessment.Converters"
+             x:Class="UndoAssessment.Views.DataFetchPage" 
+             Title="{Binding Title}">
+    <ContentPage.BindingContext>
+        <vm:DataFetchViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <cnv:InvertedBoolConverter x:Key="invertedBool"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content>
-        <StackLayout>
-            <Button Text="Call First API Endpoint"/>
-            <Button Text="Call Second API Endpoint"/>
+        <StackLayout Orientation="Vertical" VerticalOptions="Center" HorizontalOptions="Center" Padding="5,0"  Spacing="20">
+            <Button Text="Call First API Endpoint" Command="{Binding FetchSuccessfulCommand}" IsEnabled="{Binding IsBusy, Converter={x:StaticResource invertedBool}}"/>
+            <Button Text="Call Second API Endpoint" Command="{Binding FetchFailedCommand}" IsEnabled="{Binding IsBusy, Converter={x:StaticResource invertedBool}}"/>
+            <ActivityIndicator IsRunning="{Binding IsBusy}" HeightRequest="20" WidthRequest="20"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
