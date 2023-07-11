@@ -9,6 +9,7 @@
     <ContentPage.Resources>
         <sys:Boolean x:Key="TrueValue">True</sys:Boolean>
         <sys:Boolean x:Key="FalseValue">False</sys:Boolean>
+        <!-- ToDo: The converter can be replace from the Xamarin Community Toolkit package -->
         <converters:InverseBoolConverter x:Key="inverter" />
     </ContentPage.Resources>
     <ContentPage.ToolbarItems>

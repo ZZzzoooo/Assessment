@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:UndoAssessment.CustomControls"
              Shell.PresentationMode="ModalAnimated"
              Title="A Form"
              x:Class="UndoAssessment.Views.NewUserPage">
@@ -12,12 +11,13 @@
             <Label Text="Age" />
             <!-- for simplicity -->
             <Entry x:Name="AgeEntry" Keyboard="Numeric" Text="{Binding Age}" />
+
+            <!-- There as alternativy, may add <xct:TextValidationBehavior, but for it need install the Xamarin Community Toolkit package -->
             <!--<Entry x:Name="AgeEntry" Keyboard="Numeric" Text="{Binding Age}">
                 <Entry.Behaviors>
                     <local:NumericValidationBehavior />
                 </Entry.Behaviors>
             </Entry>-->
-            <!-- There as alternativy, may add <xct:TextValidationBehavior, but for it need install the Xamarin Community Toolkit packet -->
 
             <StackLayout Orientation="Horizontal">
                 <Button Text="Cancel" Command="{Binding CancelCommand}" HorizontalOptions="FillAndExpand"></Button>

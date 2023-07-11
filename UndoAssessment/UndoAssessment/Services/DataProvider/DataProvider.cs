@@ -73,6 +73,7 @@ namespace UndoAssessment.Services.DataProvider
 
         private static ApiResponseModel ParseResponse(string responseBody)
         {
+            // ToDo: it can be replace to JsonConvert, it for needs install a package
             // {\"message\":\"Success message\",\"date\":\"11.07.2023 12:50:30\"}
             // var data = JsonConvert.DeserializeObject<ApiResponseModel>(responseBody);
             // return new ApiResponseModel()
