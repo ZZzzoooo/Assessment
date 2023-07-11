@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="UndoAssessment.Views.UsersPage"
+             xmlns:converters="clr-namespace:UndoAssessment.Converters;assembly=UndoAssessment"
+             xmlns:local="clr-namespace:UndoAssessment.ViewModels"
+             xmlns:model="clr-namespace:UndoAssessment.Models"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib">
+    <ContentPage.Resources>
+        <sys:Boolean x:Key="TrueValue">True</sys:Boolean>
+        <sys:Boolean x:Key="FalseValue">False</sys:Boolean>
+        <!-- ToDo: The converter can be replace from the Xamarin Community Toolkit package -->
+        <converters:InverseBoolConverter x:Key="inverter" />
+    </ContentPage.Resources>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="ADD" Command="{Binding AddItemCommand}" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <Grid>
+            <StackLayout Padding="10">
+                <RefreshView x:DataType="local:UsersViewModel"
+                             Command="{Binding LoadItemsCommand}"
+                             IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
+                    <CollectionView x:Name="ItemsListView"
+                                    ItemsSource="{Binding Items}"
+                                    SelectionMode="None">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout Padding="10" x:DataType="model:User">
+                                    <Label Text="{Binding Name}" 
+                                           LineBreakMode="NoWrap"
+                                           Style="{DynamicResource ListItemTextStyle}" 
+                                           FontSize="16" />
+                                    <Label Text="{Binding Age}" 
+                                           LineBreakMode="NoWrap"
+                                           Style="{DynamicResource ListItemDetailTextStyle}"
+                                           FontSize="13" />
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer NumberOfTapsRequired="1"
+                                                              Command="{Binding Source={RelativeSource AncestorType={x:Type local:UsersViewModel}}, Path=ItemTapped}"		
+                                                              CommandParameter="{Binding .}">
+                                        </TapGestureRecognizer>
+                                    </StackLayout.GestureRecognizers>
+                                </StackLayout>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </RefreshView>
+
+                <StackLayout Orientation="Horizontal"
+                             VerticalOptions="CenterAndExpand"
+                             HorizontalOptions="CenterAndExpand">
+                    <Grid HorizontalOptions="FillAndExpand">
+                        <Button Text="Success" Command="{Binding ButtonCommand}" IsVisible="{Binding IsSuccessBusyVisible, Converter={x:StaticResource inverter}}" CommandParameter="{StaticResource TrueValue}" />
+                        <StackLayout IsVisible="{Binding IsSuccessBusyVisible}" BackgroundColor="Black" Opacity="0.3" />
+                        <ActivityIndicator IsVisible="{Binding IsSuccessBusyVisible}" IsRunning="{Binding IsSuccessBusyVisible}" VerticalOptions="CenterAndExpand" />
+                    </Grid>
+                    <Grid HorizontalOptions="FillAndExpand">
+                        <Button Text="Fail" Command="{Binding ButtonCommand}" IsVisible="{Binding IsFailBusyVisible, Converter={x:StaticResource inverter}}" CommandParameter="{StaticResource FalseValue}" />
+                        <StackLayout IsVisible="{Binding IsFailBusyVisible}" BackgroundColor="Black" Opacity="0.3" />
+                        <ActivityIndicator IsVisible="{Binding IsFailBusyVisible}" IsRunning="{Binding IsFailBusyVisible}" VerticalOptions="CenterAndExpand" />
+                    </Grid>
+                </StackLayout>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

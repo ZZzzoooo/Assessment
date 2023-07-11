@@ -1,8 +1,6 @@
-﻿using System;
-
-namespace UndoAssessment.Models
+﻿namespace UndoAssessment.Models
 {
-    public class Item
+    public class Item : IEntity
     {
         public string Id { get; set; }
         public string Text { get; set; }
