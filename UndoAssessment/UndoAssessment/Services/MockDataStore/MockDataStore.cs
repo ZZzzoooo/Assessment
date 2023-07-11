@@ -20,6 +20,7 @@ namespace UndoAssessment.Services
         public async Task<bool> UpdateItemAsync(T item)
         {
             var oldItem = Items.Where(arg => arg.Id == item.Id).FirstOrDefault();
+
             Items.Remove(oldItem);
             Items.Add(item);
 
@@ -29,6 +30,7 @@ namespace UndoAssessment.Services
         public async Task<bool> DeleteItemAsync(string id)
         {
             var oldItem = Items.Where(arg => arg.Id == id).FirstOrDefault();
+
             Items.Remove(oldItem);
 
             return await Task.FromResult(true);

@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Diagnostics;
-using System.Threading.Tasks;
-using UndoAssessment.Models;
 using Xamarin.Forms;
 
 namespace UndoAssessment.ViewModels
@@ -28,16 +26,13 @@ namespace UndoAssessment.ViewModels
 
         public string ItemId
         {
-            get
-            {
-                return itemId;
-            }
+            get => itemId;
             set
             {
                 itemId = value;
                 LoadItemId(value);
             }
-        }        
+        }
 
         public async void LoadItemId(string itemId)
         {

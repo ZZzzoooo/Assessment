@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Text;
 using Xamarin.Forms;
 
 namespace UndoAssessment.ViewModels
@@ -28,10 +26,7 @@ namespace UndoAssessment.ViewModels
 
         public string UserId
         {
-            get
-            {
-                return _userId;
-            }
+            get => _userId;
             set
             {
                 _userId = value;

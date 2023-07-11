@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace UndoAssessment.Models
+﻿namespace UndoAssessment.Models
 {
     public class Item : IEntity
     {

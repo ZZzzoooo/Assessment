@@ -14,6 +14,8 @@ namespace UndoAssessment.ViewModels
 
         public UsersViewModel()
         {
+            Title = "Users";
+
             ButtonCommand = new Command<bool>(OnFirstClicked);
         }
 

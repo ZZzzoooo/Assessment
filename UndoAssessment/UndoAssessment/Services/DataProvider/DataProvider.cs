@@ -15,7 +15,14 @@ namespace UndoAssessment.Services.DataProvider
 
         public async Task<IEnumerable<Item>> GetItems()
         {
-            var items = Enumerable.Range(0, 11).Select(ind => new Item() { Id = ind.ToString(), Text = ind.ToString(), Description = ind.ToString() });
+            var items = Enumerable.Range(0, 11)
+                            .Select(ind =>
+                                new Item
+                                {
+                                    Id = ind.ToString(),
+                                    Text = ind.ToString(),
+                                    Description = ind.ToString()
+                                });
 
             return await Task.FromResult(items);
         }
@@ -27,8 +34,6 @@ namespace UndoAssessment.Services.DataProvider
                 using (HttpClient client = new HttpClient())
                 {
                     var urlformat = $"{Url}{(flag ? SuccessPartUrl : FailPartUrl)}";
-
-
                     var response = await client.GetAsync(urlformat);
 
                     if (response.IsSuccessStatusCode)
@@ -69,8 +74,14 @@ namespace UndoAssessment.Services.DataProvider
         private static ApiResponseModel ParseResponse(string responseBody)
         {
             // {\"message\":\"Success message\",\"date\":\"11.07.2023 12:50:30\"}
-            //var data = JsonConvert.DeserializeObject(responseBody);
+            // var data = JsonConvert.DeserializeObject<ApiResponseModel>(responseBody);
+            // return new ApiResponseModel()
+            // {
+            //     Message = date.Message,
+            //     Date = date.Date
+            // };
 
+            // Fictitious response
             return new ApiResponseModel()
             {
                 Message = "Success message",
