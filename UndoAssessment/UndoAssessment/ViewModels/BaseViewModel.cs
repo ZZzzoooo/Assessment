@@ -7,12 +7,15 @@ using Xamarin.Forms;
 
 using UndoAssessment.Models;
 using UndoAssessment.Services;
+using UndoAssessment.Services.DataProvider;
 
 namespace UndoAssessment.ViewModels
 {
     public class BaseViewModel : INotifyPropertyChanged
     {
-        public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>();
+        public IDataStore<Item> ItemsDataStore => DependencyService.Get<IDataStore<Item>>();
+        public IDataStore<User> UserDataStore => DependencyService.Get<IDataStore<User>>();
+        public IDataProvider DataProvider => DependencyService.Get<IDataProvider>();
 
         bool isBusy = false;
         public bool IsBusy

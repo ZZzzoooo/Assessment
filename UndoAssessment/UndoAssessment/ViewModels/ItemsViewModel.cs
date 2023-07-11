@@ -37,7 +37,7 @@ namespace UndoAssessment.ViewModels
             try
             {
                 Items.Clear();
-                var items = await DataStore.GetItemsAsync(true);
+                var items = await ItemsDataStore.GetItemsAsync(true);
                 foreach (var item in items)
                 {
                     Items.Add(item);
