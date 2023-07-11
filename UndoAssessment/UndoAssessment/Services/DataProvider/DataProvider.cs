@@ -26,7 +26,7 @@ namespace UndoAssessment.Services.DataProvider
             {
                 using (HttpClient client = new HttpClient())
                 {
-                    var urlformat = $"Url/{(flag ? SuccessPartUrl : FailPartUrl)}";
+                    var urlformat = $"{Url}{(flag ? SuccessPartUrl : FailPartUrl)}";
 
 
                     var response = await client.GetAsync(urlformat);
@@ -68,10 +68,13 @@ namespace UndoAssessment.Services.DataProvider
 
         private static ApiResponseModel ParseResponse(string responseBody)
         {
+            // {\"message\":\"Success message\",\"date\":\"11.07.2023 12:50:30\"}
+            //var data = JsonConvert.DeserializeObject(responseBody);
+
             return new ApiResponseModel()
             {
-                Id = 11,
-                Name = "fff"
+                Message = "Success message",
+                Date = DateTime.UtcNow
             };
         }
     }

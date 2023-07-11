@@ -1,4 +1,6 @@
-﻿namespace UndoAssessment.Services
+﻿using System;
+
+namespace UndoAssessment.Services
 {
     public class ApiResponse
     {
@@ -9,7 +11,12 @@
 
     public class ApiResponseModel
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
+        public string Message { get; set; }
+        public DateTime Date { get; set; }
+
+        public override string ToString()
+        {
+            return $"Message: {Message}, date: {Date}";
+        }
     }
 }

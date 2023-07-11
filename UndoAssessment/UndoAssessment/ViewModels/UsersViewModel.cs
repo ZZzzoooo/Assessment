@@ -37,7 +37,7 @@ namespace UndoAssessment.ViewModels
                 if (response.IsSuccess)
                 {
                     // Show success message
-                    await ShowAlert("Success", "API call was successful");
+                    await ShowAlert("Success", $"API call was successful: {response.Result}");
                 }
                 else
                 {
@@ -48,6 +48,7 @@ namespace UndoAssessment.ViewModels
             catch (Exception ex)
             {
                 Debug.WriteLine(ex);
+                await ShowAlert("Error", ex.Message);
             }
             finally
             {
