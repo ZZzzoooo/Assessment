@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="UndoAssessment.Views.AssessmentPage"
+             Title="Assessment">
+    <ContentPage.Content>
+        <StackLayout 
+            Orientation="Horizontal"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="FillAndExpand">
+            <Button Margin="10" Text="User Info" HorizontalOptions="Start" VerticalOptions="Start" Command="{Binding AddUserInfoCommand}"/>
+            <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                <Grid Margin="30">
+                    <Label Text="User Name:" TextColor="Black" Grid.Row="0" Grid.Column="0">
+                        <Label.Triggers>
+                            <DataTrigger TargetType="Label" Binding="{Binding UserName}" Value="">
+                                <Setter Property="IsVisible" Value="False"/>
+                            </DataTrigger>
+                        </Label.Triggers>
+                    </Label>
+                    <Label Text="{Binding UserName}" Grid.Row="0" Grid.Column="1"/>
+                    <Label Text="Age:" TextColor="Black" Grid.Row="1" Grid.Column="0">
+                        <Label.Triggers>
+                            <DataTrigger TargetType="Label" Binding="{Binding Age}" Value="">
+                                <Setter Property="IsVisible" Value="False"/>
+                            </DataTrigger>
+                        </Label.Triggers>
+                    </Label>
+                    <Label Text="{Binding Age}" Grid.Row="1" Grid.Column="1"/>
+                </Grid>
+                <StackLayout Orientation="Horizontal">
+                    <Button Text="Success" BackgroundColor="Green" Command="{Binding SuccessCommand}"/>
+                    <Button Text="Failure" BackgroundColor="Red" Command="{Binding FailureCommand}"/>
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
