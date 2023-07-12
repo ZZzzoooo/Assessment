@@ -22,10 +22,12 @@
                 <DataTemplate>
                     <StackLayout Padding="10" x:DataType="model:Item">
                         <Label Text="{Binding Text}" 
+                            TextColor="Black"
                             LineBreakMode="NoWrap" 
                             Style="{DynamicResource ListItemTextStyle}" 
                             FontSize="16" />
                         <Label Text="{Binding Description}" 
+                            TextColor="Black"
                             LineBreakMode="NoWrap"
                             Style="{DynamicResource ListItemDetailTextStyle}"
                             FontSize="13" />

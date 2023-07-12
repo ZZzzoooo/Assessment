@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Windows.Input;
+using UndoAssessment.Models;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace UndoAssessment.ViewModels
 {
-    public class AboutViewModel : BaseViewModel
+    public class AboutViewModel : BaseViewModel<Item>
     {
         public AboutViewModel()
         {

@@ -10,7 +10,7 @@ using UndoAssessment.Views;
 
 namespace UndoAssessment.ViewModels
 {
-    public class ItemsViewModel : BaseViewModel
+    public class ItemsViewModel : BaseViewModel<Item>
     {
         private Item _selectedItem;
 

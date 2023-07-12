@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="UndoAssessment.Views.TestPage"
+             Title="{Binding Title}"
+             xmlns:local="clr-namespace:UndoAssessment.ViewModels"  
+             xmlns:model="clr-namespace:UndoAssessment.Models"  
+             x:Name="BrowseUsersPage">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add User" Command="{Binding AddUserCommand}" />
+    </ContentPage.ToolbarItems>
+    <!--
+      x:DataType enables compiled bindings for better performance and compile time validation of binding expressions.
+      https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/data-binding/compiled-bindings
+    -->
+    <!--<Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>-->
+
+    <StackLayout Orientation="Vertical">
+        <StackLayout Orientation="Vertical" VerticalOptions="Start">
+            <RefreshView x:DataType="local:TestViewModel" Command="{Binding LoadUsersCommand}" IsRefreshing="{Binding IsBusy, Mode=TwoWay}" VerticalOptions="Fill">
+                <CollectionView x:Name="UsersListView"
+                ItemsSource="{Binding Users}"
+                SelectionMode="None">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout Padding="10" x:DataType="model:User">
+                                <Label Text="{Binding Name}"
+                            TextColor="Black"
+                            LineBreakMode="NoWrap" 
+                            Style="{DynamicResource ListItemTextStyle}" 
+                            FontSize="16" />
+                                <Label Text="{Binding Age}" 
+                            TextColor="Black"
+                            LineBreakMode="NoWrap"
+                            Style="{DynamicResource ListItemDetailTextStyle}"
+                            FontSize="13" />
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </RefreshView>
+        </StackLayout>
+
+        <StackLayout Orientation="Vertical" Padding="30,24,30,24" Spacing="10" VerticalOptions="End">
+            <Button Margin="0,10,0,0" Text="Invoke success endpoint"
+                        Command="{Binding SuccessEndpointCommand}"
+                        BackgroundColor="{StaticResource Primary}"
+                        TextColor="White" />
+            <Button Margin="0,10,0,0" Text="Invoke fail endpoint"
+                        Command="{Binding FailEndpointCommand}"
+                        BackgroundColor="{StaticResource Primary}"
+                        TextColor="White" />
+        </StackLayout>
+    </StackLayout>
+    <!--</Grid>-->
+</ContentPage>
+

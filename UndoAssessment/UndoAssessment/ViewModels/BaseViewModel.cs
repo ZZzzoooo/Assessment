@@ -10,9 +10,9 @@ using UndoAssessment.Services;
 
 namespace UndoAssessment.ViewModels
 {
-    public class BaseViewModel : INotifyPropertyChanged
+    public class BaseViewModel<T> : INotifyPropertyChanged
     {
-        public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>();
+        public IDataStore<T> DataStore => DependencyService.Get<IDataStore<T>>();
 
         bool isBusy = false;
         public bool IsBusy

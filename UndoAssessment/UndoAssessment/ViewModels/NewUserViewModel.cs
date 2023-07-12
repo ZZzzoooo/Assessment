@@ -1,18 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Windows.Input;
 using UndoAssessment.Models;
 using Xamarin.Forms;
 
 namespace UndoAssessment.ViewModels
 {
-    public class NewItemViewModel : BaseViewModel<Item>
+    public class NewUserViewModel : BaseViewModel<User>
     {
-        private string text;
-        private string description;
+        private string name;
+        private string age;
 
-        public NewItemViewModel()
+        public NewUserViewModel()
         {
             SaveCommand = new Command(OnSave, ValidateSave);
             CancelCommand = new Command(OnCancel);
@@ -22,20 +19,21 @@ namespace UndoAssessment.ViewModels
 
         private bool ValidateSave()
         {
-            return !String.IsNullOrWhiteSpace(text)
-                && !String.IsNullOrWhiteSpace(description);
+            return !String.IsNullOrWhiteSpace(name)
+                && byte.TryParse(age, out byte tempAge)
+                && tempAge >= 0;
         }
 
-        public string Text
+        public string Name
         {
-            get => text;
-            set => SetProperty(ref text, value);
+            get => name;
+            set => SetProperty(ref name, value);
         }
 
-        public string Description
+        public string Age
         {
-            get => description;
-            set => SetProperty(ref description, value);
+            get => age;
+            set => SetProperty(ref age, value);
         }
 
         public Command SaveCommand { get; }
@@ -49,14 +47,14 @@ namespace UndoAssessment.ViewModels
 
         private async void OnSave()
         {
-            Item newItem = new Item()
+            User newUser = new User()
             {
                 Id = Guid.NewGuid().ToString(),
-                Text = Text,
-                Description = Description
+                Name = Name,
+                Age = byte.Parse(Age)
             };
             
-            await DataStore.AddItemAsync(newItem);
+            await DataStore.AddItemAsync(newUser);
 
             // This will pop the current page off the navigation stack
             await Shell.Current.GoToAsync("..");

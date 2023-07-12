@@ -1,0 +1,20 @@
+﻿Suggested solution:
+------------------
+Add a "News section" button to the new tab with an indicator of the number of new unread news.
+The number of new news to get by executing a request to the server once when the application starts.
+When you click on the button, the counter on the unread news button is reset to zero and a page opens
+with a list of all news arranged in descending order of the date of the news.
+In the list, display the Title, Date and part of the text of the news.
+In the list, mark the titles of new or not yet read news with the bold style.
+When you click on a news in the list, open a page with the full content of the news.
+
+
+Questions:
+---------
+- In what format will the news be presented? (HTML, XML, etc.)
+- What fields are provided for news (Title, Text, Date, Image, etc.), How should they be placed in the view?
+- How exactly do you want to see the news section: will it be a link or a button to a new tab or page?
+- How often or at what time should a request be made to the server to check for new news.
+  This will be a scheduled check or once when entering the application or by pressing a button or when entering a bookmark (news page);
+  Will there be a request to receive the number of new news?
+- Is it necessary to mark the user as read after viewing the news and visually mark or hide from the list of news;

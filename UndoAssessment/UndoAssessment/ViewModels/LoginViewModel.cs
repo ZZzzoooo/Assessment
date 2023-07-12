@@ -3,10 +3,11 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Xamarin.Forms;
+using UndoAssessment.Models;
 
 namespace UndoAssessment.ViewModels
 {
-    public class LoginViewModel : BaseViewModel
+    public class LoginViewModel : BaseViewModel<Item>
     {
         public Command LoginCommand { get; }
 
