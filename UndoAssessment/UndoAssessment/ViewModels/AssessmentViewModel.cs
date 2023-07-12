@@ -39,7 +39,13 @@ namespace UndoAssessment.ViewModels
             FailureCommand = new Command(OnFailureTapped);
             AddUserInfoCommand = new Command(OnAddUserInfoTapped);
         }
+        public void LoadUserData()
+        {
+            UserName = Preferences.Get(nameof(UserName), "");
+            Age = Preferences.Get(nameof(Age), "");
+        }
 
+        #region Commands
         private async void OnAddUserInfoTapped(object obj)
         {
             await Shell.Current.GoToAsync("AddUserInfoPage");
@@ -82,12 +88,7 @@ namespace UndoAssessment.ViewModels
                 await DisplayAlertMessage(ex.Message);
             }
         }
-
-        public void LoadUserData()
-        {
-            UserName = Preferences.Get(nameof(UserName), "");
-            Age = Preferences.Get(nameof(Age), "");
-        }
+        #endregion
 
         private async Task DisplayAlertMessage(string message)
         {
