@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<xct:Popup xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             Size="350,350"
+             x:Class="UndoAssessment.Views.AddUserPopup">
+    <StackLayout Orientation="Vertical">
+        <StackLayout Orientation="Vertical">
+            <Label
+            TextColor="Black"
+            FontAttributes="Bold"
+            Text="Add User"
+            VerticalOptions="Center" 
+            HorizontalOptions="CenterAndExpand" Margin="0,5,0,0"/>
+            <Button Clicked="Button_Clicked" HorizontalOptions="End" Margin="30,-39,0,0" Text="X" BackgroundColor="#ffffff" TextColor="#000000" FontAttributes="Bold">
+            </Button>
+        </StackLayout>
+        <StackLayout Margin="0,20,0,0" Orientation="Vertical">
+            <Frame Margin="5,0,5,0" HeightRequest="45"  Padding="5,0,5,0" HasShadow="True" BorderColor="LightGray" HorizontalOptions="FillAndExpand">
+                <Entry x:Name="UserNameEntry" TextChanged="UserName_Changed" Margin="15,0,0,0" Placeholder="UserName" Keyboard="Text" VerticalOptions="Center"></Entry>
+            </Frame>
+            <Label IsVisible="false" x:Name="NameLabel" Text="UserName is required" TextColor="Red"  FontSize="10" HorizontalTextAlignment="Center"/>
+        </StackLayout>
+        <StackLayout Margin="0,5,0,0" Orientation="Vertical">
+            <Frame Margin="5,0,5,0" HeightRequest="45"  Padding="5,0,5,0" HasShadow="True" BorderColor="LightGray" HorizontalOptions="FillAndExpand">
+                <Entry x:Name="AgeEntry" TextChanged="Age_Changed" Margin="15,0,0,0" Placeholder="Age" Keyboard="Numeric" VerticalOptions="Center"></Entry>
+            </Frame>
+            <Label IsVisible="false" x:Name="AgeLabel" Text="Age is required" TextColor="Red"  FontSize="10" HorizontalTextAlignment="Center"/>
+        </StackLayout>
+        <StackLayout Orientation="Horizontal" HorizontalOptions="End" Margin="0,10,0,0">
+            <Button CornerRadius="5" Clicked="Button_Clicked" BackgroundColor="Black" FontSize="12" TextColor="White" Text="Cancel">
+            </Button>
+            <Button CornerRadius="5" Clicked="Button_Clicked_1" Margin="5,0,5,0" BackgroundColor="{StaticResource Primary}" FontSize="12" TextColor="White" Text="Save">
+            </Button>
+        </StackLayout>
+    </StackLayout>
+</xct:Popup>
