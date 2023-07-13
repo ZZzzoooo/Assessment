@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using UndoAssessment.ViewModels;
-using UndoAssessment.Views;
+﻿using UndoAssessment.Views;
 using Xamarin.Forms;
 
 namespace UndoAssessment

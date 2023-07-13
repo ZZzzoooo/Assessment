@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<popup:PopupPage
+    x:Class="UndoAssessment.Views.Dialogs.EditProfileView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:popup="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+    BackgroundColor="Transparent">
+    <Grid
+        ColumnSpacing="0"
+        HorizontalOptions="FillAndExpand"
+        RowSpacing="0"
+        VerticalOptions="FillAndExpand">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="56" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="56" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <!--  age  -->
+            <RowDefinition Height="Auto" />
+            <!--  name  -->
+            <RowDefinition Height="Auto" />
+            <!--  submit  -->
+            <RowDefinition Height="Auto" />
+            <!--  cancel  -->
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Frame
+            Grid.Row="1"
+            Grid.RowSpan="4"
+            Grid.Column="1"
+            BackgroundColor="White"
+            CornerRadius="8"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="FillAndExpand" />
+        <Entry
+            x:Name="ageEnrtry"
+            Grid.Row="1"
+            Grid.Column="1"
+            Margin="12,5"
+            FontSize="Subtitle"
+            HorizontalOptions="FillAndExpand"
+            HorizontalTextAlignment="Start"
+            Keyboard="Numeric"
+            Placeholder="Age"
+            PlaceholderColor="Gray"
+            TextColor="Black"
+            VerticalOptions="Start" />
+        <Entry
+            x:Name="nameEnrtry"
+            Grid.Row="2"
+            Grid.Column="1"
+            Margin="12,5"
+            FontSize="Body"
+            HorizontalOptions="FillAndExpand"
+            HorizontalTextAlignment="Start"
+            Placeholder="Name"
+            PlaceholderColor="Gray"
+            TextColor="Black" />
+        <Button
+            x:Name="submitButton"
+            Grid.Row="3"
+            Grid.Column="1"
+            Margin="12,5"
+            Padding="15,10"
+            FontSize="Subtitle"
+            Text="Submit" />
+        <Button
+            x:Name="cancelButton"
+            Grid.Row="4"
+            Grid.Column="1"
+            Margin="12,5"
+            Padding="15,10"
+            FontSize="Subtitle"
+            Text="Cancel" />
+    </Grid>
+</popup:PopupPage>
