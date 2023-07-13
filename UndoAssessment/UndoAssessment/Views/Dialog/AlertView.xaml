@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<popup:PopupPage
+    x:Class="UndoAssessment.Views.Dialogs.AlertView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:popup="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+    BackgroundColor="Transparent">
+    <Grid
+        ColumnSpacing="0"
+        HorizontalOptions="FillAndExpand"
+        RowSpacing="0"
+        VerticalOptions="FillAndExpand">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="56" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="56" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <!--  title  -->
+            <RowDefinition Height="Auto" />
+            <!--  message  -->
+            <RowDefinition Height="Auto" />
+            <!--  subtitle  -->
+            <RowDefinition Height="Auto" />
+            <!--  buttons  -->
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Frame
+            Grid.Row="1"
+            Grid.RowSpan="4"
+            Grid.Column="1"
+            BackgroundColor="White"
+            CornerRadius="8"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="FillAndExpand" />
+        <Label
+            x:Name="titleLabel"
+            Grid.Row="1"
+            Grid.Column="1"
+            FontSize="Subtitle"
+            HorizontalOptions="CenterAndExpand"
+            HorizontalTextAlignment="Center"
+            TextColor="Black"
+            VerticalOptions="Start" />
+        <Label
+            x:Name="messageLabel"
+            Grid.Row="2"
+            Grid.Column="1"
+            Margin="24,5"
+            FontSize="Body"
+            HorizontalOptions="Start"
+            HorizontalTextAlignment="Start"
+            LineHeight="1.25"
+            TextColor="Black" />
+        <Label
+            x:Name="subtitleLabel"
+            Grid.Row="3"
+            Grid.Column="1"
+            Margin="24,5"
+            FontSize="Body"
+            HorizontalOptions="Start"
+            HorizontalTextAlignment="Start"
+            IsVisible="False"
+            LineHeight="1.25"
+            TextColor="Black" />
+        <StackLayout
+            Grid.Row="4"
+            Grid.Column="1"
+            HorizontalOptions="EndAndExpand"
+            Orientation="Horizontal"
+            Spacing="10">
+            <Button
+                x:Name="okButton"
+                Margin="10,0,14,14"
+                Padding="15,10"
+                BackgroundColor="Transparent"
+                FontSize="Subtitle"
+                TextColor="Blue" />
+        </StackLayout>
+    </Grid>
+</popup:PopupPage>
