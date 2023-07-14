@@ -4,9 +4,18 @@
              x:Class="UndoAssessment.Views.ApiCall">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Button Text="Call Success Api"
+                    Margin="20"
+                Background="green"
+                TextColor="White"
+                x:Name="successBtn"
+                Clicked="onSuccessBtnClicked"/>
+            <Button Text="Call Fail Api"
+                    Margin="20"
+                x:Name="failBtn"
+                Background="Red"
+                TextColor="White"
+                Clicked="onFailBtnClicked"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
