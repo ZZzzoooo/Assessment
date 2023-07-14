@@ -36,5 +36,17 @@ namespace UndoAssessment.Views
 
             await DisplayAlert(alertTitle, alertMessage, "OK");
         }
+
+        private void OnUserInfoButtonClicked(object sender, EventArgs e)
+        {
+            userInfoForm.IsVisible = true;
+        }
+
+        private void OnSubmitButtonClicked(object sender, EventArgs e)
+        {
+            userInfoForm.IsVisible = false;
+            userInfoLabel.IsVisible = true;
+            userInfoLabel.Text = $"Name : {entName.Text} Age: {entAge.Text}";
+        }
     }
 }
