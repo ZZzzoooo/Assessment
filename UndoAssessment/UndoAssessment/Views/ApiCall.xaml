@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="UndoAssessment.Views.ApiCall">
+    <ContentPage.Content>
+        <StackLayout>
+            <AbsoluteLayout>
+                <Button AbsoluteLayout.LayoutFlags="PositionProportional"
+                    AbsoluteLayout.LayoutBounds="1, 0, 60, 60"
+                    BackgroundColor="white"
+                    BorderColor="Black"
+                    BorderWidth="2"
+                    CornerRadius="30"
+                    Clicked="OnUserInfoButtonClicked"
+                    ImageSource="icon_about.png" 
+                    Margin="10"
+                    Padding="20"
+                />
+            </AbsoluteLayout>
+            <StackLayout x:Name="userInfoForm" IsVisible="False" Margin="20">
+                <Entry x:Name="entName" Placeholder="Enter your name" />
+                <Entry x:Name="entAge" Placeholder="Enter your age" Keyboard="Numeric" />
+                <Button Text="Submit" Clicked="OnSubmitButtonClicked" />
+            </StackLayout>
+            <Label 
+                x:Name="userInfoLabel" 
+                IsVisible="False"
+                FontSize="24"
+                HorizontalOptions="CenterAndExpand"
+            />
+            <Button Text="Call Success Api"
+                    Margin="20"
+                Background="green"
+                TextColor="White"
+                x:Name="successBtn"
+                Clicked="onSuccessBtnClicked"/>
+            <Button Text="Call Fail Api"
+                    Margin="20"
+                x:Name="failBtn"
+                Background="Red"
+                TextColor="White"
+                Clicked="onFailBtnClicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
