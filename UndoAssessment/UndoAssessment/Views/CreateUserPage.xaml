@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="UndoAssessment.Views.CreateUserPage">
+    <ContentPage.Content>
+        <StackLayout Padding="10">
+
+            <Entry Placeholder="Name" Text="{Binding Name}" />
+            
+            <Entry Placeholder="Age" Text="{Binding Age}" Keyboard="Numeric" />
+            
+            <StackLayout Orientation="Horizontal">
+                
+                <Button Text="Cancel" Command="{Binding CancelCommand}" HorizontalOptions="FillAndExpand"/>
+                
+                <Button Text="Save" Command="{Binding CreateUserCommand}" HorizontalOptions="FillAndExpand"/>
+                
+            </StackLayout>
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

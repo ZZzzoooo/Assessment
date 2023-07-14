@@ -1,6 +1,6 @@
-﻿using System.ComponentModel;
+﻿using UndoAssessment.ViewModels;
 using Xamarin.Forms;
-using UndoAssessment.ViewModels;
+using Xamarin.Forms.Xaml;
 
 namespace UndoAssessment.Views
 {
@@ -9,7 +9,7 @@ namespace UndoAssessment.Views
         public ItemDetailPage()
         {
             InitializeComponent();
-            BindingContext = new ItemDetailViewModel();
+            BindingContext = Startup.ServiceProvider?.GetService<ItemDetailViewModel>();
         }
     }
 }

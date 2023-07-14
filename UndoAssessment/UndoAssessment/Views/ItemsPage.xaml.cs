@@ -1,33 +1,24 @@
-﻿using System;
-using System.ComponentModel;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-
-using UndoAssessment.Models;
-using UndoAssessment.Views;
 using UndoAssessment.ViewModels;
 
 namespace UndoAssessment.Views
 {
-    public partial class ItemsPage : ContentPage
-    {
-        ItemsViewModel _viewModel;
+	public partial class ItemsPage : ContentPage
+	{
+		readonly ItemsViewModel _viewModel;
 
-        public ItemsPage()
-        {
-            InitializeComponent();
+		public ItemsPage()
+		{
+			InitializeComponent();
 
-            BindingContext = _viewModel = new ItemsViewModel();
-        }
+			BindingContext = _viewModel = Startup.ServiceProvider?.GetService<ItemsViewModel>();
+		}
 
-        protected override void OnAppearing()
-        {
-            base.OnAppearing();
-            _viewModel.OnAppearing();
-        }
-    }
+		protected override void OnAppearing()
+		{
+			base.OnAppearing();
+			_viewModel.OnAppearing();
+		}
+	}
 }
