@@ -13,7 +13,8 @@ namespace UndoAssessment
         {
             InitializeComponent();
 
-            DependencyService.Register<MockDataStore>();
+            Startup.Init();
+            
             MainPage = new AppShell();
         }
 

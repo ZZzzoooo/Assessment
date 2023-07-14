@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Windows.Input;
 using UndoAssessment.Models;
+using UndoAssessment.Services;
 using Xamarin.Forms;
 
 namespace UndoAssessment.ViewModels
@@ -11,9 +12,11 @@ namespace UndoAssessment.ViewModels
     {
         private string text;
         private string description;
+        private readonly IDataStore<Item> _dataStore;
 
-        public NewItemViewModel()
+        public NewItemViewModel(IDataStore<Item> dataStore)
         {
+            _dataStore = dataStore;
             SaveCommand = new Command(OnSave, ValidateSave);
             CancelCommand = new Command(OnCancel);
             this.PropertyChanged += 
@@ -56,7 +59,7 @@ namespace UndoAssessment.ViewModels
                 Description = Description
             };
             
-            await DataStore.AddItemAsync(newItem);
+            await _dataStore.AddItemAsync(newItem);
 
             // This will pop the current page off the navigation stack
             await Shell.Current.GoToAsync("..");
