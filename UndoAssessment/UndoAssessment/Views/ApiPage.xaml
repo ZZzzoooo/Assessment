@@ -1,0 +1,31 @@
+﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:UndoAssessment.ViewModels;assembly=UndoAssessment"
+             x:Class="UndoAssessment.Views.ApiPage"
+             Padding="25">
+    <ContentPage.BindingContext>
+        <viewmodels:ApiPageViewModel />
+    </ContentPage.BindingContext>
+    <StackLayout Padding="20">
+        <StackLayout HorizontalOptions="End">
+            <Button Text="Add User Information"
+                    Clicked="OnAddUserButtonClicked" />
+        </StackLayout>
+
+        <StackLayout VerticalOptions="CenterAndExpand">
+            <StackLayout x:Name="userDataLayout" IsVisible="{Binding IsUserInformationVisible}">
+                <Label Text="User Information" FontAttributes="Bold" />
+                <Label Text="{Binding User.Name, Mode=TwoWay}" />
+                <Label Text="{Binding User.Age, Mode=TwoWay}" />
+            </StackLayout>
+        </StackLayout>
+
+        <StackLayout HorizontalOptions="End">
+            <Button Text="Invoke Success Endpoint"
+                    Clicked="OnSuccessButtonClicked" />
+            <Button Text="Invoke Fail Endpoint"
+                    Clicked="OnFailButtonClicked" />
+        </StackLayout>
+
+    </StackLayout>
+</ContentPage>
