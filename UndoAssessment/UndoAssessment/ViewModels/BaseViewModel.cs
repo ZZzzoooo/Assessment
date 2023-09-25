@@ -7,12 +7,13 @@ using Xamarin.Forms;
 
 using UndoAssessment.Models;
 using UndoAssessment.Services;
+using System.Threading.Tasks;
+using Xamarin.Essentials;
 
 namespace UndoAssessment.ViewModels
 {
     public class BaseViewModel : INotifyPropertyChanged
     {
-        public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>();
 
         bool isBusy = false;
         public bool IsBusy
@@ -50,6 +51,30 @@ namespace UndoAssessment.ViewModels
                 return;
 
             changed.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+        #endregion
+
+
+        #region Invoke Service, check connectivity and error handling
+        protected async Task InvokeService(Func<Task> service)
+        {
+            try
+            {
+                Device.BeginInvokeOnMainThread(() => IsBusy = true);
+                NetworkAccess currentState = Connectivity.NetworkAccess;
+                if (currentState != NetworkAccess.Internet)
+                {
+                    await App.Current.MainPage.DisplayAlert("Network problem!", "Check network connectivity and try again!", "Close");
+                    IsBusy = false;
+                    return;
+                }
+                await service();
+            }
+            catch (Exception ex)
+            {
+                await App.Current.MainPage.DisplayAlert("Error!", "Something went wrong! Exception: "+ex.Message+"", "Ok");
+            }
+            await Device.InvokeOnMainThreadAsync(() => IsBusy = false);
         }
         #endregion
     }

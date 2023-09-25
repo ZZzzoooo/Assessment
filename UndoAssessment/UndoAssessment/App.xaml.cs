@@ -3,7 +3,9 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using UndoAssessment.Services;
 using UndoAssessment.Views;
+using UndoAssessment.Services.Interfaces;
 
+[assembly: ExportFont("materialdesignicons-webfont.ttf", Alias = "Material")]
 namespace UndoAssessment
 {
     public partial class App : Application
@@ -13,7 +15,7 @@ namespace UndoAssessment
         {
             InitializeComponent();
 
-            DependencyService.Register<MockDataStore>();
+            DependencyService.Register<IAssessmentService, AssessmentService>();
             MainPage = new AppShell();
         }
 

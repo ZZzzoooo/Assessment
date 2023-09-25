@@ -27,6 +27,7 @@
                     </VisualStateGroupList>
                 </Setter>
             </Style>
+            <OnPlatform  x:TypeArguments="x:String" iOS="Material Design Icons" Android="materialdesignicons-webfont.ttf" x:Key="Material" />
         </ResourceDictionary>        
     </Application.Resources>
 </Application>
