@@ -46,14 +46,22 @@ namespace UndoAssessment.ViewModels
 
         public async Task CallSucc()
         {
-            var response = await _assesmentService.CallApi<SuccessResult>("success");
-            await App.Current.MainPage.DisplayAlert("Message", response.IsSuccess ? response.Data.Message : response.ErrorMessage, "Ok");
+            //Invoke service - check network connectivity - global error handling
+            await InvokeService(async () => 
+            {
+                var response = await _assesmentService.CallApi<SuccessResult>("success");
+                await App.Current.MainPage.DisplayAlert("Message", response.IsSuccess ? response.Data.Message : response.ErrorMessage, "Ok");
+            });
         }
 
         public async Task CallFail()
         {
-            var response = await _assesmentService.CallApi<SuccessResult>("fail");
-            await App.Current.MainPage.DisplayAlert("Message", response.IsSuccess ? response.Data.Message : response.ErrorMessage, "Ok");
+            //Invoke service - check network connectivity - global error handling
+            await InvokeService(async () =>
+            {
+                var response = await _assesmentService.CallApi<SuccessResult>("fail");
+                await App.Current.MainPage.DisplayAlert("Message", response.IsSuccess ? response.Data.Message : response.ErrorMessage, "Ok");
+            });
         }
 
         public async Task OpenUserForm()
