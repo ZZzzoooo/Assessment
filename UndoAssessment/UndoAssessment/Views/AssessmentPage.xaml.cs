@@ -11,7 +11,6 @@ namespace UndoAssessment.Views
         public AssessmentPage()
         {
             InitializeComponent();
-            this.BindingContext = new AssessmentViewModel();
         }
     }
 }
