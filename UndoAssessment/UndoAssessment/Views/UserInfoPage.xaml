@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:UndoAssessment.ViewModels"
+    x:Class="UndoAssessment.Views.UserInfoPage">
+     <ContentPage.BindingContext>
+        <vm:UserInfoViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout
+            VerticalOptions="Center"
+            HorizontalOptions="Center">
+            <StackLayout
+                Orientation="Horizontal"
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="CenterAndExpand">
+                <Label
+                    VerticalOptions="Center"
+                    Text="Name:"/>
+                <Entry
+                    WidthRequest="150"
+                    Placeholder="Name"
+                    Text="{Binding UserName}"/>
+            </StackLayout>
+            
+            <StackLayout
+                Orientation="Horizontal"
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="CenterAndExpand">
+                <Label
+                    VerticalOptions="Center"
+                    Text="Age:"/>
+                <Entry
+                    WidthRequest="150"
+                    Placeholder="Name"
+                    Text="{Binding Age}"/>
+            </StackLayout>
+            <Button
+                Padding="20,0"
+                VerticalOptions="Center"
+                HorizontalOptions="Center"
+                Margin="5"
+                Text="Submit"
+                Command="{Binding SubmitCommand}"
+                BackgroundColor="{StaticResource Primary}"
+                TextColor="White" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
+
